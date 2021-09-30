@@ -1,0 +1,178 @@
+scheming_version: 2
+dataset_type: rockphysics
+about: EPOS TCS MSL Rock Physics data publication schema
+about_url: https://github.com/ckan/ckanext-scheming
+
+
+dataset_fields:
+
+  # common fields accross subdomains:
+
+- field_name: title
+  label: Title
+  preset: title
+  form_placeholder: Title of the data publication
+  required: True
+
+- field_name: name
+  label: URL
+  preset: dataset_slug
+  form_placeholder: eg. full resolvable DOI
+
+- field_name: owner_org
+  label: Publisher
+  preset: dataset_organization
+
+- field_name: notes
+  label: Abstract
+  form_snippet: markdown.html
+  form_placeholder: abstract of the data publication
+  required: True
+
+- field_name: technical_description
+  label: Technical Description
+  form_snippet: markdown.html
+  form_placeholder: technical description of the data publication
+  required: False
+
+# - field_name: author goes wrong because of standard CKAN field?
+- field_name: creator
+  label: Creator(s)
+  repeating_subfields:
+  - field_name: creator_role
+    label: creator role
+    # wordt choices element
+  - field_name: creator_name
+    label: Name
+  - field_name: creator_orcid
+    label: ORCID
+  - field_name: creator_affiliation
+    label: Affiliation
+
+- field_name: laboratories
+  label: labs
+  repeating_label: lab
+  repeating_subfields:
+  - field_name: lab_name
+  - field_name: lab_id
+    # label: lab identifier
+    display_snippet: lab.html
+
+- field_name: references
+  label: References
+  repeating_label: Reference
+  repeating_subfields:
+  - field_name: reference_type
+    # label: Type of reference
+    preset: select
+    choices:
+    - value: is_referenced_by
+      label: Is referenced by
+    - value: references
+      label: References
+    - value: is_supplemented_by
+      label: Is supplemented by
+    - value: is_supplement_to
+      label: Is supplement to
+  - field_name: ref_citation
+    # label: Title
+  - field_name: ref_doi
+    # label: DOI
+    display_snippet: doi.html
+
+- field_name: tag_string
+  label: Tags
+  preset: tag_string_autocomplete
+  form_placeholder: eg. rock physics, analogue materials, etc.
+
+- field_name: data_download
+  label: Data Download
+  repeating_label: Download
+  repeating_subfields:
+  - field_name: file_name
+    # label: Filename
+    required: True  
+  - field_name: download_link
+    # label: Download
+    display_snippet: link.html
+    form_placeholder: resource_url_upload
+    required: True
+
+- field_name: license_id
+  label: License
+  form_snippet: license.html
+  help_text: License definitions and additional information can be found at http://opendefinition.org/
+
+- field_name: materials
+  label: Materials
+  preset: multiple_select
+  "choices":
+  - "value": "sandstone"
+    "label": "Sandstone"
+  - "value": "quartz"
+    "label": "Quartz"
+
+- field_name: measured_properties
+  label: Measured properties
+  preset: multiple_select
+  "choices":
+  - "value": "sandstone"
+    "label": "Sandstone"
+  - "value": "quartz"
+    "label": "Quartz"
+
+- field_name: apparatus
+  label: Apparatus
+  preset: multiple_select
+  "choices":
+  - "value": "sandstone"
+    "label": "Sandstone"
+  - "value": "quartz"
+    "label": "Quartz"
+
+- field_name: ancillary_equipment
+  label: Ancillary_equipment
+  preset: multiple_select
+  "choices":
+  - "value": "sandstone"
+    "label": "Sandstone"
+  - "value": "quartz"
+    "label": "Quartz"
+
+- field_name: pore_fluid
+  label: Pore fluid
+  preset: multiple_select
+  "choices":
+  - "value": "sandstone"
+    "label": "Sandstone"
+  - "value": "quartz"
+    "label": "Quartz"
+
+- field_name: inferred deformation behavior
+  label: Inferred deformation behavior
+  preset: multiple_select
+  "choices":
+  - "value": "sandstone"
+    "label": "Sandstone"
+  - "value": "quartz"
+    "label": "Quartz"
+
+
+resource_fields:
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+- field_name: name
+  label: Title
+  form_placeholder: Descriptive name of the resource.
+
+- field_name: description
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: Summary explanation of file contents, purpose, origination, methods and usage guidance.
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete
