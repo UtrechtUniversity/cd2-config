@@ -1,9 +1,9 @@
 {
   "default":
   {
+    "dataset_type": "Type",
     "organization":  "Organizations",
-    "groups": "Groups",
-    "dataset_type": "Type"
+    "groups": "Groups"
   },
   "rockphysics" :
   {
