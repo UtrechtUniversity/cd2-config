@@ -1,0 +1,6 @@
+{
+    "special_index_fields": [
+        "msl_material",
+        "msl_rock_measured_property"
+    ]
+}
