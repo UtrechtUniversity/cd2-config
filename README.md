@@ -89,12 +89,15 @@ make the correct links to the other extensions/plugins the following lines shoul
 
 `ckan.plugins` in the `ckan.ini` should contain the following plugins:
 
+      msl_ckan
       scheming_datasets
       scheming_groups
-      scheming_organizations
-      msl_ckan
+      scheming_organizations 
       msl_custom_facets
       msl_repeating_fields
+
+Make sure to keep the above order of plugin declaration in the `ckan.ini`. The order of plugin loading determines the 
+order of execution of hooks and usage of templates.
 
 ### plugin specific settings
 
