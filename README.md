@@ -38,7 +38,7 @@ To install ckanext-msl_ckan:
     git clone https://git.science.uu.nl/epos-msl/epos-msl.git
     cd ckanext-msl_ckan
     pip install -e .
-	pip install -r requirements.txt
+    pip install -r requirements.txt
 
 3. Add `msl_ckan` to the `ckan.plugins` setting in your CKAN
    config file (by default the config file is located at
@@ -46,17 +46,72 @@ To install ckanext-msl_ckan:
 
 4. Restart CKAN.
 
+## SOLR changes
+
+Depending on how SOLR was installed combined with CKAN a schema.xml supplied with the CKAN installation has 
+been used. These changes assume the CKAN supplied schema.xml have been used. The following additions should be 
+made to the schema.xml.
+
+Add to `<fields>` definitions:
+
+      <!-- MSL custom fields for indexing and web services -->
+      <field name="msl_hidden_text" type="text" indexed="true" stored="false" multiValued="true"/>
+    
+      <!-- coming from IPackageController msl_search.MslIndexRepeatedFieldsPlugin::before(index) -->
+      <field name="msl_material" type="string" indexed="true" stored="true" multiValued="true"/>
+      <field name="msl_rock_measured_property" type="string" indexed="true" stored="true" multiValued="true"/>
+
+And to the bottom list with `copyField` definitions add:
+
+      <!-- customizations MSL-->
+      <copyField source="msl_material" dest="text"/>
+      <copyField source="msl_hidden_text" dest="text"/>
+
+Within the `solrconfig.xml` make sure that the `<str name="q.op">` setting is set to AND for the select request handler:
+
+      <requestHandler name="/select" class="solr.SearchHandler">
+    <!-- default values for query parameters can be specified, these
+         will be overridden by parameters in the request
+      -->
+    <lst name="defaults">
+      <str name="echoParams">explicit</str>
+      <int name="rows">10</int>
+      <str name="mm">1</str>
+      <str name="q.op">AND</str> <----
+      ...
 
 ## Config settings
 
-None at present
+This extension includes several configuration files that are used by other extension required by this project. To 
+make the correct links to the other extensions/plugins the following lines should be added to the `ckan.ini`.
 
-**TODO:** Document any optional config settings here. For example:
+### Load plugins
 
-	# The minimum number of hours to wait before re-checking a resource
-	# (optional, default: 24).
-	ckanext.msl_ckan.some_setting = some_default_value
+`ckan.plugins` in the `ckan.ini` should contain the following plugins:
 
+      scheming_datasets
+      scheming_groups
+      scheming_organizations
+      msl_ckan
+      msl_custom_facets
+      msl_repeating_fields
+
+### plugin specific settings
+
+To use the schemas as included within this extension by the scheming plugin the following lines should be added to the 
+`ckan.ini` file:
+
+      CKAN.SCHEMING.DATASET_SCHEMAS=ckanext.msl_ckan:schemas/datasets/ckan_dataset.yaml ckanext.msl_ckan:schemas/datasets/rock_physics.yml ckanext.msl_ckan:schemas/datasets/labs.json
+      CKAN.SCHEMING.GROUP_SCHEMAS=ckanext.msl_ckan:schemas/groups/custom_group_msl_subdomain.json
+      CKAN.SCHEMING.ORGANIZATION_SCHEMAS=ckanext.msl_ckan:schemas/organizations/custom_org_institute.json
+
+To use the included facet configuration:
+
+      CKAN.MSLFACETS.DATASET_CONFIG=ckanext.msl_ckan:config/facets.json
+
+To use the included index fields configuration:
+
+      CKAN.MSLINDEXFIELDS.FIELD_CONFIG=ckanext.msl_ckan:config/msl_index_fields.json
 
 ## Developer installation
 
