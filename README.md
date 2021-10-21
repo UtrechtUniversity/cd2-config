@@ -63,7 +63,7 @@ None at present
 To install ckanext-msl_ckan for development, activate your CKAN virtualenv and
 do:
 
-    git clone https://github.com/University Utrecht/ckanext-msl_ckan.git
+    git clone https://git.science.uu.nl/epos-msl/epos-msl.git
     cd ckanext-msl_ckan
     python setup.py develop
     pip install -r dev-requirements.txt
