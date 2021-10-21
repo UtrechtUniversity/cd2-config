@@ -1,33 +1,25 @@
-[![Tests](https://github.com/University Utrecht/ckanext-msl_ckan/workflows/Tests/badge.svg?branch=main)](https://github.com/University Utrecht/ckanext-msl_ckan/actions)
-
 # ckanext-msl_ckan
 
-**TODO:** Put a description of your extension here:  What does it do? What features does it have? Consider including some screenshots or embedding a video!
-
+This extension contains configurations and templates for the EPOS MSL CKAN portal.
+The use of this extension is depended on several other extensions as described in the requirements section. Reusable 
+functionality has been placed within the msl_ckan_util extension.
 
 ## Requirements
 
-**TODO:** For example, you might want to mention here which versions of CKAN this
-extension works with.
+This extension has been developed and tested with CKAN version 2.9.*
 
-If your extension works across different versions you can add the following table:
+This extension requires the following other extension to be installed and activated:
 
-Compatibility with core CKAN versions:
+| CKAN extension        | Plugin   |
+| ---------------       | ------------- |
+| ckanext-scheming      | scheming_datasets |
+| ckanext-scheming      | scheming_groups |
+| ckanext-scheming      | scheming_organizations |
+| ckanext-msl_ckan_util | msl_ckan |
+| ckanext-msl_ckan_util | msl_custom_facets |
+| ckanext-msl_ckan_util | msl_repeating_fields |
 
-| CKAN version    | Compatible?   |
-| --------------- | ------------- |
-| 2.6 and earlier | not tested    |
-| 2.7             | not tested    |
-| 2.8             | not tested    |
-| 2.9             | not tested    |
-
-Suggested values:
-
-* "yes"
-* "not tested" - I can't think of a reason why it wouldn't work
-* "not yet" - there is an intention to get it working
-* "no"
-
+**TODO:** Add links to extension repos
 
 ## Installation
 
@@ -43,7 +35,7 @@ To install ckanext-msl_ckan:
 
 2. Clone the source and install it on the virtualenv
 
-    git clone https://github.com/University Utrecht/ckanext-msl_ckan.git
+    git clone https://git.science.uu.nl/epos-msl/epos-msl.git
     cd ckanext-msl_ckan
     pip install -e .
 	pip install -r requirements.txt
@@ -52,9 +44,7 @@ To install ckanext-msl_ckan:
    config file (by default the config file is located at
    `/etc/ckan/default/ckan.ini`).
 
-4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu:
-
-     sudo service apache2 reload
+4. Restart CKAN.
 
 
 ## Config settings
