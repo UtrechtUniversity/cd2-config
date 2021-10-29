@@ -1,0 +1,46 @@
+.account-masthead {
+    background-color: #27A468;
+}
+
+.masthead {
+    background-image: none;
+    background-color: white;
+}
+
+.masthead .nav > li > a {
+  color: #27A468;
+  text-shadow: none;
+}
+
+.masthead .nav > li > a:hover {
+    color: white;
+    background-color: white;
+}
+
+.masthead .navigation .nav-pills li a:hover,
+.masthead .navigation .nav-pills li a:focus,
+.masthead .navigation .nav-pills li.active a {
+    background-color: #27A468;
+}
+
+.site-footer {
+    background-image: none;
+    background-color: #27A468;
+}
+
+.homepage .module-search .module-content {
+    background-color: #27A468;
+}
+
+.homepage .module-search .tags {
+    background-color: #27A468;
+}
+
+.pagination > .active > a {
+    background-color: #27A468;
+}
+
+body {
+    background-color: #27A468;
+    background-image: none;
+}
