@@ -2,16 +2,14 @@
 
 {% block subfield_display %}
   {% for field_data in fields %}
-    <div class="panel panel-default">
-      <div class="panel-body">
+    <ul>
           {% if field_data['msl_lab_name'] %}
             {% if field_data['msl_lab_id'] %}
-              <a href="../lab/{{ field_data['msl_lab_id'] }}"><h3>{{ field_data['msl_lab_name'] }}</h3></a>
+              <li><a href="../lab/{{ field_data['msl_lab_id'] }}"><h3>{{ field_data['msl_lab_name'] }}</h3></a></li>
             {% else %}
-              <h3>{{ field_data['msl_lab_name'] }}</h3>
+              <li>><h3>{{ field_data['msl_lab_name'] }}</h3></li>
             {% endif %}
           {% endif %}
-      </div>
-    </div>
+    </ul>
   {% endfor %}
 {% endblock %}
