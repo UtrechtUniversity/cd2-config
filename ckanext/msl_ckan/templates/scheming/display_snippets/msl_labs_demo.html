@@ -1,0 +1,17 @@
+{% set fields = data[field.field_name] %}
+
+{% block subfield_display %}
+  {% for field_data in fields %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+          {% if field_data['msl_lab_name'] %}
+            {% if field_data['msl_lab_id'] %}
+              <a href="../lab/{{ field_data['msl_lab_id'] }}"><h3>{{ field_data['msl_lab_name'] }}</h3></a>
+            {% else %}
+              <h3>{{ field_data['msl_lab_name'] }}</h3>
+            {% endif %}
+          {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

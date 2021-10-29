@@ -149,7 +149,7 @@ dataset_fields:
 - field_name: msl_laboratories
   label: labs
   repeating_label: lab
-  # display_snippet: msl_labs.html
+  display_snippet: msl_labs_demo.html
   repeating_subfields:
   - field_name: msl_lab_name
     label: Lab name
