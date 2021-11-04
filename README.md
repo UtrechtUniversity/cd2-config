@@ -60,12 +60,14 @@ Add to `<fields>` definitions:
       <!-- coming from IPackageController msl_search.MslIndexRepeatedFieldsPlugin::before(index) -->
       <field name="msl_material" type="string" indexed="true" stored="true" multiValued="true"/>
       <field name="msl_rock_measured_property" type="string" indexed="true" stored="true" multiValued="true"/>
+      <field name="msl_rock_apparatus" type="string" indexed="true" stored="true" multiValued="true"/>
 
 And to the bottom list with `copyField` definitions add:
 
       <!-- customizations MSL-->
       <copyField source="msl_material" dest="text"/>
       <copyField source="msl_hidden_text" dest="text"/>
+      <copyField source="msl_rock_apparatus" dest="text"/>
 
 Within the `solrconfig.xml` make sure that the `<str name="q.op">` setting is set to AND for the select request handler:
 
@@ -89,12 +91,15 @@ make the correct links to the other extensions/plugins the following lines shoul
 
 `ckan.plugins` in the `ckan.ini` should contain the following plugins:
 
+      msl_ckan
       scheming_datasets
       scheming_groups
-      scheming_organizations
-      msl_ckan
+      scheming_organizations 
       msl_custom_facets
       msl_repeating_fields
+
+Make sure to keep the above order of plugin declaration in the `ckan.ini`. The order of plugin loading determines the 
+order of execution of hooks and usage of templates.
 
 ### plugin specific settings
 
@@ -112,6 +117,81 @@ To use the included facet configuration:
 To use the included index fields configuration:
 
       CKAN.MSLINDEXFIELDS.FIELD_CONFIG=ckanext.msl_ckan:config/msl_index_fields.json
+
+## Adjusting settings within CKAN
+Some texts and settings have to be adjusted by signing in as admin within the portal. The default username and password 
+depend on the installation type. It is recommended to change the default credentials after installation.
+
+### Generating an API key
+Go to your profile in the top bar and click on `manage`. Within this form click on the `Regenerate API key` button to 
+make an API key that can be used for access. This API key will be used in other steps of this guide.
+
+### Add organizations
+Some organizations have to be added to use the current import process. Currently these have to be added manually. Add 
+organizations with the names: `EPOS Multi-scale Laboratories Thematic Core Service` and `yoda repository`.
+
+### Import data
+
+### Set texts
+Go to the `Sysadmin settings` section which is linked to in the top right menu. Click on the `Config` tab and set the 
+following values using the form.
+
+About:
+```
+![EPOS](https://www.epos-eu.org/themes/epos/logo.svg)
+
+[Check](https://www.epos-eu.org) the new EPOS ERIC website
+***
+Click [here](https://epos-no.uib.no/epos-tna/facilities) to go to the EPOS TNA-/Infrastructure portal for an overview of labs currently involved within the MSL network.
+##Background
+
+In a world that demands increasing interoperability and collaboration inside the scientific community, solid Earth science laboratories are challenged with finding each other to exchange best practices and re-usable standardized data. Data produced by the various laboratory centres and networks are crucial to serving society’s needs for geo-resources exploration and for protection against geo-hazards. Indeed, to model resource formation and system behaviour during exploitation, we need an understanding from the molecular to the continental scale, based on experimental and analytical data. Therefore, coordination and communication inside the European solid Earth science laboratories, complemented with services to increase curation and access for re-use of laboratory data is needed to effectively contribute to solve the grand challenges facing society.
+
+The **EPOS Mult-scale Laboratories community** (https://epos-ip.org/tcs/multi-scale-laboratories) aims at the collection and harmonization of available and emerging laboratory data on the properties and processes controlling rock system behaviour at multiple scales. As a result, it generates products uniformly accessible and interoperable through services for supporting research activities into Geo-resources and Geo-storage, Geo-hazards and Earth System Evolution.
+
+The EPOS Multi-Scale Laboratories community includes a wide range of world-class laboratory infrastructures. The length scales addressed by these infrastructures cover the nano- and micrometre levels (electron microscopy and micro-beam analysis) to the scale of experiments on centimetre and decimetre sized samples, to analogue model experiments simulating the reservoir scale, the basin scale and the plate scale. The MSL community includes at the moment over sixty laboratories, affiliated to eleven institutes in eight European countries. The research infrastructures are grouped into four major sub-domains:
+
+* Analogue modelling of geologic processes
+* Rock and melt physical properties
+* Paleomagnetic and magnetic data
+* Geochemical data (rock geochemistry)
+
+Data emerging from the community can be categorized as
+
+_analytical and properties data on_
+
+* volcanic ash from explosive eruptions
+* magmas in the context of eruption and lava-flow hazard evaluation
+* rock systems of key importance in mineral exploration and mining operations
+
+_experimental data describing_
+
+* rock and fault properties of importance for modelling and forecasting natural and induced subsidence, seismicity and associated hazards
+* rock and fault properties relevant for modelling the containment capacity of rock
+
+_systems for CO2 energy sources and wastes_
+
+* crustal and upper mantle rheology as needed for modelling sedimentary basin formation and crustal stress distributions
+* the composition, porosity, permeability and frackability of reservoir rocks of interest in relation to unconventional resources and geothermal energy
+
+_repository of analogue models on tectonic processes, from the plate to the reservoir scale, relevant to the understanding of Earth dynamics, geo-hazards, and geo-energy_
+
+_paleomagnetic data, that are crucial for_
+
+* understanding the evolution of sedimentary basins and associated resources
+* charting geo-hazard frequency
+```
+
+Intro Text:
+```
+![EPOS](https://www.epos-eu.org/themes/epos/logo.svg)
+
+[Check](https://www.epos-eu.org) the new EPOS ERIC website
+***
+Click https://epos-no.uib.no/epos-tna/facilities to go to the EPOS TNA-/Infrastructure portal for an overview of labs currently involved within the MSL network.
+***
+This is the central data catalog of the EPOS Multi-scale laboratories community. Here you can find openly published data coming from a wide range of world-class experimental laboratory infrastructures: from high pressure-temperature rock and fault mechanics and rock physics facilities, to electron microscopy, micro-beam analysis, analogue modelling and paleomagnetic laboratories. More information about the Multi-scale laboratories community is to be found at https://epos-ip.org/tcs/multi-scale-laboratories.
+```
 
 ## Developer installation
 
