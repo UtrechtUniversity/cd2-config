@@ -106,17 +106,17 @@ order of execution of hooks and usage of templates.
 To use the schemas as included within this extension by the scheming plugin the following lines should be added to the 
 `ckan.ini` file:
 
-      CKAN.SCHEMING.DATASET_SCHEMAS=ckanext.msl_ckan:schemas/datasets/ckan_dataset.yaml ckanext.msl_ckan:schemas/datasets/rock_physics.yml ckanext.msl_ckan:schemas/datasets/labs.json
-      CKAN.SCHEMING.GROUP_SCHEMAS=ckanext.msl_ckan:schemas/groups/custom_group_msl_subdomain.json
-      CKAN.SCHEMING.ORGANIZATION_SCHEMAS=ckanext.msl_ckan:schemas/organizations/custom_org_institute.json
+      scheming.dataset_schemas = ckanext.msl_ckan:schemas/datasets/ckan_dataset.yaml ckanext.msl_ckan:schemas/datasets/rock_physics.yml ckanext.msl_ckan:schemas/datasets/labs.json
+      scheming.group_schemas = ckanext.msl_ckan:schemas/groups/custom_group_msl_subdomain.json
+      scheming.organization_schemas = ckanext.msl_ckan:schemas/organizations/custom_org_institute.json
 
 To use the included facet configuration:
 
-      CKAN.MSLFACETS.DATASET_CONFIG=ckanext.msl_ckan:config/facets.json
+      mslfacets.dataset_config = ckanext.msl_ckan:config/facets.json
 
 To use the included index fields configuration:
 
-      CKAN.MSLINDEXFIELDS.FIELD_CONFIG=ckanext.msl_ckan:config/msl_index_fields.json
+      mslindexfields.field_config = ckanext.msl_ckan:config/msl_index_fields.json
 
 ## Adjusting settings within CKAN
 Some texts and settings have to be adjusted by signing in as admin within the portal. The default username and password 
