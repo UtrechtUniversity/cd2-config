@@ -35,10 +35,10 @@ To install ckanext-msl_ckan:
 
 2. Clone the source and install it on the virtualenv
 
-      git clone https://git.science.uu.nl/epos-msl/epos-msl.git
-      cd ckanext-msl_ckan
-      pip install -e .
-      pip install -r requirements.txt
+            git clone https://git.science.uu.nl/epos-msl/epos-msl.git
+            cd ckanext-msl_ckan
+            pip install -e .
+            pip install -r requirements.txt
 
 3. Add `msl_ckan` to the `ckan.plugins` setting in your CKAN
    config file (by default the config file is located at
