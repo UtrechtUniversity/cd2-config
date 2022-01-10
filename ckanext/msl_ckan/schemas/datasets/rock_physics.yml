@@ -322,6 +322,10 @@ dataset_fields:
     label: File name
   - field_name: msl_download_link
     label: downloadlink
+  - field_name: msl_extension
+    label: File extension
+  - field_name: msl_timestamp
+    label: Timestamp
 
 resource_fields:
 
