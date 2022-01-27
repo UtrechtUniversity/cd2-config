@@ -1,6 +1,6 @@
 scheming_version: 2
-dataset_type: rockphysics
-about: EPOS TCS MSL Rock Physics data publication schema
+dataset_type: paleomagnetic
+about: EPOS TCS MSL paleomagnetic and magnetic data publication schema
 about_url: https://github.com/ckan/ckanext-scheming
 
 # comments
