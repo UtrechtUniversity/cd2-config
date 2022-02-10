@@ -61,13 +61,20 @@ Add to `<fields>` definitions:
       <field name="msl_material" type="string" indexed="true" stored="true" multiValued="true"/>
       <field name="msl_rock_measured_property" type="string" indexed="true" stored="true" multiValued="true"/>
       <field name="msl_rock_apparatus" type="string" indexed="true" stored="true" multiValued="true"/>
+      <field name="msl_rock_ancillary_equipment" type="string" indexed="true" stored="true" multiValued="true"/>
+      <field name="msl_rock_pore_fluid" type="string" indexed="true" stored="true" multiValued="true"/>
+      <field name="msl_rock_inferred_deformation_behavior" type="string" indexed="true" stored="true" multiValued="true"/>
 
 And to the bottom list with `copyField` definitions add:
 
       <!-- customizations MSL-->
       <copyField source="msl_material" dest="text"/>
       <copyField source="msl_hidden_text" dest="text"/>
+      <copyField source="msl_rock_measured_property" dest="text"/>
       <copyField source="msl_rock_apparatus" dest="text"/>
+      <copyField source="msl_rock_ancillary_equipment" dest="text"/>
+      <copyField source="msl_rock_pore_fluid" dest="text"/>
+      <copyField source="msl_rock_inferred_deformation_behavior" dest="text"/>
 
 Within the `solrconfig.xml` make sure that the `<str name="q.op">` setting is set to AND for the select request handler:
 
