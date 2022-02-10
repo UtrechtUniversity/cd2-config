@@ -95,6 +95,10 @@ dataset_fields:
   label: Publisher
   preset: dataset_organization
 
+# field containing possible publisher as stated within source dataset
+- field_name: msl_publisher
+  label: Source publisher
+
 # CKAN
 # DCAT-mapping: ..
 # facet
