@@ -10,6 +10,14 @@
     "msl_rock_measured_property": "Measured property",
     "msl_rock_apparatus": "Apparatus"
   },
+  "paleomagnetic":
+  {
+    "msl_material": "Material"
+  },
+  "analogue":
+  {
+    "msl_material": "Material"
+  },
   "lab":
   {
     "organization":  "Organization"
