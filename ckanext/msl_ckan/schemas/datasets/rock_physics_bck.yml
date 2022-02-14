@@ -4,14 +4,14 @@ about: EPOS TCS MSL Rock Physics data publication schema
 about_url: https://github.com/ckan/ckanext-scheming
 
 # comments
-# version 0.4
+# version 0.3
 
-# changes from 0.3:
-# removed structured naming for authors (YoDa makes use of this, but GFZ does not)
-# removed contributors (YoDa assigns this? If so we will add this again in the next version)
-# msl_pid block became msl_pids because of double naming (i.e. sub element)
-# maintainer (CKAN default field) is not used. We make use contact point as a structured field
-# removed related data publications (offered by YoDa?)
+# TODO:
+# - geo coordinates as reals
+# - coordinates and coordinates in single location field (mutliples?)
+# - add DOI
+# - versioning on this file
+# - msl_references: identifier, identifierType, title (optional)
 
 
 dataset_fields:
@@ -34,7 +34,7 @@ dataset_fields:
   form_placeholder: eg. full resolvable DOI
 
 # MSL
-- field_name: msl_pids
+- field_name: msl_pid
   label: persistent identifier
   repeating_subfields:
   # DataCite: Identifier
@@ -62,17 +62,35 @@ dataset_fields:
 
 # CUSTOM
 # DCAT-mapping: ..
-- field_name: msl_authors
+- field_name: msl_creators
   label: Creators
   repeating_subfields:
-  - field_name: msl_author_name
-    label: Author name
-  - field_name: msl_author_identifier
-    label: Author identifier
-  - field_name: msl_author_affiliation
+  - field_name: msl_creator_first_name
+    label: First name
+  - field_name: msl_creator_family_name
+    label: Family name
+  - field_name: msl_creator_orcid
+    label: ORCID
+  - field_name: msl_creator_affiliation
     label: Affiliation
     # TODO: sufficient to allow single affiliation?
 
+# CUSTOM
+# DCAT-mapping: ..
+- field_name: msl_contributors
+  label: Contributors
+  repeating_subfields:
+  - field_name: msl_contributor_first_name
+    label: First name
+  - field_name: msl_contributor_family_name
+    label: Family name
+  - field_name: msl_contributor_orcid
+    label: ORCID
+  - field_name: msl_contributor_affiliation
+    label: Affiliation
+  - field_name: msl_contributor_role
+    label: Role
+    # TODO: sufficient to allow single affiliation?
 
 # CUSTOM
 # DCAT-mapping: ..
@@ -87,17 +105,40 @@ dataset_fields:
     label: Title
   - field_name: msl_reference_type
     label: Type
+    # choices:
+    # - label: Is referenced by
+    #   value: is_referenced_by
+    # - label: References
+    #   value: references
+    # - label: Is supplement to
+    #   value: is_supplement_to
+    # - label: Is supplemented by
+    #   value: is_supplemented_by
 
+# CUSTOM
+# DCAT-mapping: ..
+- field_name: msl_related_data_publications
+  label: Related data publications
+  repeating_subfields:
+  - field_name: msl_datapublication_identifier_type
+    label: Identifier type
+  - field_name: msl_datapublication_identifier_value
+    label: Identifier
+  - field_name: msl_datapublication_reference_type
+    label: Reference type
+  - field_name: msl_datapublication_reference_title
+    label: Title
+
+# CUSTOM
+# DCAT-mapping: ..
+- field_name: msl_hidden_text # used for cllecting text from e.g. paper abstracts for indexing
+  display_snippet: null
 
 # CKAN
 # DCAT-mapping: ..
 - field_name: owner_org
   label: Publisher
   preset: dataset_organization
-
-# field containing possible publisher as stated within source dataset
-- field_name: msl_publisher
-  label: Source publisher
 
 # CKAN
 # DCAT-mapping: ..
@@ -113,7 +154,7 @@ dataset_fields:
   form_placeholder: abstract of the data publication
   required: True
 
-# CUSTOM (thus far only provided by CSIC)
+# CUSTOM
 # DCAT-mapping: ..
 - field_name: msl_technical_description
   label: Technical Description
@@ -168,7 +209,6 @@ dataset_fields:
 
 # CUSTOM
 # NOTE: Will be merged with msl_spatial_coordinates once 2-level hierarchy is possible
-# Not found thus far with GFZ
 - field_name: msl_geolocations # free format geo location description, e.g. CSIC formats in DataCite; try to follow Getty Thesaurus of Geographic Names (TGN)
   label: Geo location(s)
   repeating_subfields:
@@ -177,7 +217,6 @@ dataset_fields:
 
 # CUSTOM
 # DCAT-mapping ..
-# Not offered by GFZ?
 - field_name: msl_covered_period
   label: Covered period(s)
   repeating_subfields:
@@ -190,7 +229,6 @@ dataset_fields:
 
 # CUSTOM
 # DCAT-mapping ..
-# not found at GFZ?
 - field_name: msl_collection_period
   label: Collection period(s)
   repeating_subfields:
@@ -214,16 +252,21 @@ dataset_fields:
   form_snippet: license.html
   help_text: License definitions and additional information can be found at http://opendefinition.org/
 
-# CUSTOM
-- field_name: msl_points_of_contact
-  labeL: Contact
-  repeating_subfields:
-  - field_name: msl_contact_name
-    label: Contact name
-  - field_name: msl_contact_organisation
-    label: Contact organization
-  - field_name: msl_contact_electronic_address
-    label: Contact email
+# CKAN
+# DCAT-mapping: ..
+- field_name: maintainer
+  label: Maintainer
+  form_placeholder: Joe Bloggs
+  display_property: dc:contributor
+
+# CKAN
+# DCAT-mapping: ..
+- field_name: maintainer_email
+  label: Maintainer Email
+  form_placeholder: joe@example.com
+  display_property: dc:contributor
+  display_snippet: email.html
+  display_email_name_field: maintainer
 
   # special fields for subdomain rock physics:
 
@@ -279,10 +322,6 @@ dataset_fields:
     label: File name
   - field_name: msl_download_link
     label: downloadlink
-  - field_name: msl_extension
-    label: File extension
-  - field_name: msl_timestamp
-    label: Timestamp
 
 resource_fields:
 

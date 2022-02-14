@@ -1,6 +1,6 @@
 scheming_version: 2
-dataset_type: rockphysics
-about: EPOS TCS MSL Rock Physics data publication schema
+dataset_type: analogue
+about: EPOS TCS MSL analogue modelling and geologic processes data publication schema
 about_url: https://github.com/ckan/ckanext-scheming
 
 # comments
