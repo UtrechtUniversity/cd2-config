@@ -64,6 +64,10 @@ Add to `<fields>` definitions:
       <field name="msl_rock_ancillary_equipment" type="string" indexed="true" stored="true" multiValued="true"/>
       <field name="msl_rock_pore_fluid" type="string" indexed="true" stored="true" multiValued="true"/>
       <field name="msl_rock_inferred_deformation_behavior" type="string" indexed="true" stored="true" multiValued="true"/>
+      <field name="msl_author_name" type="string" indexed="true" stored="true" multiValued="true"/>
+      <field name="msl_author_name_text" type="text" indexed="true" stored="false" multiValued="true"/>
+      <field name="msl_lab_name" type="string" indexed="true" stored="true" multiValued="true"/>
+      <field name="msl_lab_name_text" type="text" indexed="true" stored="false" multiValued="true"/>
 
 And to the bottom list with `copyField` definitions add:
 
@@ -75,6 +79,10 @@ And to the bottom list with `copyField` definitions add:
       <copyField source="msl_rock_ancillary_equipment" dest="text"/>
       <copyField source="msl_rock_pore_fluid" dest="text"/>
       <copyField source="msl_rock_inferred_deformation_behavior" dest="text"/>
+      <copyField source="msl_author_name" dest="text"/>
+      <copyField source="msl_author_name" dest="msl_author_name_text"/>
+      <copyField source="msl_lab_name" dest="text"/>
+      <copyField source="msl_lab_name" dest="msl_lab_name_text"/>
 
 Within the `solrconfig.xml` make sure that the `<str name="q.op">` setting is set to AND for the select request handler:
 
@@ -113,7 +121,7 @@ order of execution of hooks and usage of templates.
 To use the schemas as included within this extension by the scheming plugin the following lines should be added to the 
 `ckan.ini` file:
 
-      scheming.dataset_schemas = ckanext.msl_ckan:schemas/datasets/ckan_dataset.yaml ckanext.msl_ckan:schemas/datasets/rock_physics.yml ckanext.msl_ckan:schemas/datasets/labs.json
+      scheming.dataset_schemas = ckanext.msl_ckan:schemas/datasets/ckan_dataset.yaml ckanext.msl_ckan:schemas/datasets/rock_physics.yml ckanext.msl_ckan:schemas/datasets/paleomagnetic.yml ckanext.msl_ckan:schemas/datasets/analogue_modelling.yml ckanext.msl_ckan:schemas/datasets/labs.json
       scheming.group_schemas = ckanext.msl_ckan:schemas/groups/custom_group_msl_subdomain.json
       scheming.organization_schemas = ckanext.msl_ckan:schemas/organizations/custom_org_institute.json
 
