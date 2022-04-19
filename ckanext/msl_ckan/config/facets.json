@@ -4,25 +4,11 @@
     "dataset_type": "Type",
     "organization":  "Organization"
   },
-  "rockphysics":
-  {
-    "msl_material": "Material",
-    "msl_rock_measured_property": "Measured property",
-    "msl_rock_apparatus": "Apparatus",
-    "msl_rock_ancillary_equipment": "Ancillary equipment",
-    "msl_rock_pore_fluid": "Pore fluid",
-    "msl_rock_inferred_deformation_behavior": "Inferred deformation behavior"
-  },
-  "paleomagnetic":
-  {
-    "msl_material": "Material"
-  },
-  "analogue":
-  {
-    "msl_material": "Material"
-  },
-  "lab":
-  {
-    "organization":  "Organization"
+  "cohort": {
+	  "dataset_type": "DDI block",
+	  "organization": "Study",
+	  "studyunit": "Wave",
+	  "pi_name": "PI",
+	  "pi_orcid": "PI OrcID"
   }
 }

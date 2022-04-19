@@ -1,0 +1,75 @@
+scheming_version: 2
+dataset_type: cohort
+about: CD² cohorts are described as DDI Lifecycle 3.2 groups
+about_url: https://github.com/ckan/ckanext-scheming
+
+# comments
+#
+# General
+#
+# field_names should correspond to DDI terminology
+# label, etc. should correspond to CID terminology
+# 
+# version 0.1
+
+dataset_fields:
+
+# common fields accross subdomains:
+
+# CKAN
+# DataCite: Title
+- field_name: title
+  label: Title
+  preset: title
+  form_placeholder: Title of the CD² cohort
+  required: True
+
+# CKAN
+# No DataCite analogue since this concerns an internal CKAN name
+- field_name: name
+  label: ID
+  preset: dataset_slug
+
+# CKAN
+- field_name: owner_org
+  label: Study
+  preset: dataset_organization
+
+# CKAN
+- field_name: description
+  label: Description
+  preset: markdown
+
+- field_name: principal_investigator
+  label: Principal investigator
+  required: True
+  repeating_subfields:
+  - field_name: pi_name
+    label: Name of principal investigator
+  - field_name: pi_orcid
+    label: OrcID of principal investigator
+
+- field_name: studyunits
+  label: Wave(s)
+  repeating_subfields:
+  - field_name: studyunit
+    label: Wave
+  
+resource_fields:
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+- field_name: name
+  label: Title
+  form_placeholder: Descriptive name of the resource.
+
+- field_name: description
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: Summary explanation of file contents, purpose, origination, methods and usage guidance.
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete

@@ -1,11 +1,11 @@
 {
   "scheming_version": 1,
-  "organization_type": "institute",
+  "organization_type": "study",
   "about_url": "http://github.com/ckan/ckanext-scheming",
   "fields": [
     {
       "field_name": "title",
-      "label": "Name of institution",
+      "label": "Name of study",
       "validators": "ignore_missing unicode",
       "form_snippet": "large_text.html",
       "form_attrs": {
@@ -24,7 +24,7 @@
       "field_name": "notes",
       "label": "Description",
       "form_snippet": "markdown.html",
-      "form_placeholder": "A little information about my organization...",
+      "form_placeholder": "A little information about my study...",
       "display_snippet": "institution.html"
     },
     {
