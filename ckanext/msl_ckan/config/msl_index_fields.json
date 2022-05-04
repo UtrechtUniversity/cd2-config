@@ -1,7 +1,4 @@
 {
     "special_index_fields": [
-	"pi_name",
-	"pi_orcid",
-	"studyunit"
     ]
 }

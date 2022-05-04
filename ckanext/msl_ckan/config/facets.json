@@ -6,9 +6,6 @@
   },
   "cohort": {
 	  "dataset_type": "DDI block",
-	  "organization": "Study",
-	  "studyunit": "Wave",
-	  "pi_name": "PI",
-	  "pi_orcid": "PI OrcID"
+	  "organization": "Study"
   }
 }
