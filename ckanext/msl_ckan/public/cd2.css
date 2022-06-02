@@ -1,4 +1,20 @@
-.account-masthead {
+.site-footer {
+    background-image: none;
+    background-color: #D89F6F;
+    padding: 0;
+}
+
+#cohorts-bar {
+    background-color: #F1F4E9;
+    padding: 60px 0 38px;
+}
+
+.footer-element-margins {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+/* .account-masthead {
     background-color: #27A468;
 }
 
@@ -20,11 +36,6 @@
 .masthead .navigation .nav-pills li a:hover,
 .masthead .navigation .nav-pills li a:focus,
 .masthead .navigation .nav-pills li.active a {
-    background-color: #27A468;
-}
-
-.site-footer {
-    background-image: none;
     background-color: #27A468;
 }
 
@@ -51,4 +62,4 @@ body {
 
 .pill {
     background-color: #27A468;
-}
+} */
