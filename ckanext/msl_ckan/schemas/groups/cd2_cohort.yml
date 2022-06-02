@@ -1,4 +1,4 @@
-scheming_version: 1
+scheming_version: 2
 group_type: cohort
 about: A reimplementation of the default CKAN group schema
 about_url: http://github.com/ckan/ckanext-scheming
@@ -23,7 +23,6 @@ fields:
 - field_name: alternate_title
   label:  Alternate title
 
-
 # standard CKAN field
 - field_name: notes
   label: Description
@@ -33,6 +32,7 @@ fields:
   form_placeholder: eg. Some useful notes about the cohort
 
 - field_name: purpose # Purpose of the study (text)
+  label: Purpose of the study
   preset: markdown
 
 - field_name: publisher
@@ -42,7 +42,7 @@ fields:
     label: Publisher name
     required: true
   - field_name: publisher_identifier
-    label: Publiser ID
+    label: Publisher ID
   - field_name: publisher_identifier_type
     label: Publisher ID-type
 
@@ -56,9 +56,9 @@ fields:
     label: Affiliation
     required: true
   - field_name: creator_pid
-    label: identifier
+    label: Identifier
   - field_name: creator_identifier_type # ORCID, SCOPUS, etc.
-    label: identifier type
+    label: Identifier type
 
 - field_name: contributors
   label: Contributors
@@ -74,11 +74,6 @@ fields:
   - field_name: contributor_identifier_type # ORCID, SCOPUS, etc.
     label: identifier type
 
-
-# standard CKAN field?
-- field_name: language
-  label: Language
-
 - field_name: international_identifier
   label: Cohort international identifier # e.g. DOI
 
@@ -88,7 +83,9 @@ fields:
   - field_name: funder
     label: Funder name
   - field_name: grant_number
-    label:  Grant number
+    label: Grant number
+  - field_name: grant_url
+    label: Grant URL # e.g. https://nwo.nl/zwaartekracht/23
 
 # Coverage
 
@@ -96,65 +93,49 @@ fields:
 
 # ----------------------- check CKAN defaults:
 
-- field_name: tag_string
-  label: Keywords
-  preset: tag_string_autocomplete
-  form_placeholder: eg. economy, mental health, government
-
+# standard CKAN field
 - field_name: owner_org
   label: Study
 
-
+# standard CKAN field
 - field_name: url
-  label: Information page
+  label: Cohort homepage
   form_placeholder: http://example.com/dataset.json
   display_property: foaf:homepage
   display_snippet: link.html
 
 # We have to discuss the next fields: pi, contact, etc.?
 
-- field_name: author
-  label: Author
-  form_placeholder: Joe Bloggs
-  display_property: dc:creator
-
-- field_name: author_email
-  label: Author Email
-  form_placeholder: joe@example.com
-  display_property: dc:creator
-  display_snippet: email.html
-  display_email_name_field: author
-
+# standard CKAN field
 - field_name: maintainer
-  label: Repository
-  form_placeholder: Joe Bloggs
+  label: Cohort data contact
+  form_placeholder: Joe
   display_snippet: link.html
   # display_property: dc:contributor
 
+# standard CKAN field
 - field_name: maintainer_email
-  label: Maintainer Email
+  label: Cohort data contact email
   form_placeholder: joe@example.com
   display_property: dc:contributor
   display_snippet: email.html
   display_email_name_field: maintainer
-
-
-resource_fields:
-
-- field_name: url
-  label: URL
-  preset: resource_url_upload
-
-- field_name: name
-  label: Name
-  form_placeholder: eg. January 2011 Gold Prices
-
-- field_name: description
-  label: Description
-  form_snippet: markdown.html
-  form_placeholder: Some useful notes about the data
-
-- field_name: format
-  label: Format
-  preset: resource_format_autocomplete
-
+  #
+  #
+  #resource_fields:
+  #- field_name: url
+  #  label: URL
+  #  preset: resource_url_upload
+  #
+  #- field_name: name
+  #  label: Name
+  #  form_placeholder: eg. January 2011 Gold Prices
+  #
+  #- field_name: description
+  #  label: Description
+  #  form_snippet: markdown.html
+  #  form_placeholder: Some useful notes about the data
+  #
+  #- field_name: format
+  #  label: Format
+  #  preset: resource_format_autocomplete

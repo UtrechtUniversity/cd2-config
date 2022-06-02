@@ -26,8 +26,6 @@ dataset_fields:
   repeating_subfields:
   - field_name: wave_title
     label: Short identifying title
-  - field_name: wave_studyunit_type
-    label: Type of StudyUnit # e.g. child, adolescent
   - field_name: wave_measurement_stages # e.g. 1 month, 3 months, etc; can we somehow harmonize these accross cohorts?
     label: Stage of measurement
   - field_name: notes # standard CKAN field; abstract description of the wave
@@ -144,6 +142,3 @@ dataset_fields:
     label: household
   - value: family
     label: family
-
-
-
