@@ -22,7 +22,6 @@ fields:
   display_snippet: link.html
 # name is an internal CKAN identifier;
 # if the cohort has a DOI then possibly use hash of this
-# DH: perhaps skip "name" as we already have "title", or replace title with name?
 - field_name: name
   label: Identifier
   preset: dataset_slug
@@ -48,42 +47,56 @@ fields:
     label: Identifier of the creator (e.g., ORCID)
   - field_name: cohort_study_pi_identifier_type # ORCID, SCOPUS, etc.
     label: Type of identifier used for the creator, e.g., ORCID
-
-# DH: Contributors are also in the metadatamodel under Study / Organization
-# Copy-paste from cd2_cohort.yml
-#- field_name: contributors
-#  label: Contributors of the cohort study
-#  repeating_subfields:
-#  - field_name: contributor
-#    label:  Full name of the contributor
-#    required: true
-#  - field_name: contributor_affiliation
-#    label: Affiliation of the contributor
-#    required: true
-#  - field_name: contributor_pid
-#    label: Identifier of the contributor (e.g., ORCID)
-#  - field_name: contributor_identifier_type # ORCID, SCOPUS, etc.
-#    label: Type of identifier used for the contributor, e.g., ORCID
-
-# DH: Publisher is also in the metadatamodel under Study / Organization
-# Copy-paste from cd2_cohort.yml
-#- field_name: publisher
-#  label: Publishing organization (of the cohort data)
-#  repeating_subfields:
-#  - field_name: publisher_name
-#    label: Name of organization hosting the data
-#    required: true
-#  - field_name: publisher_identifier
-#    label: Identifier of the organization
-#  - field_name: publisher_identifier_type
-#    label: Type of organization identifier (e.g., PIC, GRID)
+- field_name: contributors
+  label: Contributors of the cohort study
+  repeating_subfields:
+  - field_name: contributor
+    label:  Full name of the contributor
+    required: true
+  - field_name: contributor_affiliation
+    label: Affiliation of the contributor
+    required: true
+  - field_name: contributor_pid
+    label: Identifier of the contributor (e.g., ORCID)
+  - field_name: contributor_identifier_type # ORCID, SCOPUS, etc.
+    label: Type of identifier used for the contributor, e.g., ORCID
+- field_name: publisher
+  label: Publishing organization (of the cohort data)
+  repeating_subfields:
+  - field_name: publisher_name
+    label: Name of organization hosting the data
+    required: true
+  - field_name: publisher_identifier
+    label: Identifier of the organization
+  - field_name: publisher_identifier_type
+    label: Type of organization identifier (e.g., PIC, GRID)
 
 # DH: Language is also in the metadatamodel under Study / Organization
 #- field_name: cohort_study_language
-#  label: Language of the study
+#  label: Language of the study data
 
+# DH: copy-paste from elsewhere to include PID subfields
 - field_name: cohort_study_international_identifier
   label: Cohort study international identifier # e.g. DOI
+  repeating_subfields:
+  - field_name: cohort_study_citation
+    label: Citation # to be harvested via e.g. DataCite API
+  - field_name: cohort_study_pid
+    label: Cohort study international identifier # e.g. DOI
+  - field_name: cohort_study_pid_type
+    label: Identifier type of the reference, e.g., DOI
+  - field_name: cohort_study_reference_type
+    label: Reference type # e.g. IsSupplementedBy, IsDocumentedBy, Supplements, etc.
+    preset: select
+    choices:
+    - value: IsDocumentedBy
+      label: Documented by
+    - value: IsDescribedBy
+      label: Described by
+    - value: IsSupplementedBy
+      label: Is supplemented by
+    - value: IsSourceOf
+      label: Is source of  
 - field_name: cohort_study_funding
   label: Funding information for the cohort study as a whole
   repeating_subfields:
@@ -125,12 +138,10 @@ fields:
       label: Is supplemented by
     - value: IsSourceOf
       label: Is source of
-
-# DH: Data access is also in the metadatamodel under Study / Organization
-#- field_name: cohort_study_data_access
-#  label: How can others gain access to the study data?
-#  repeating_subfields:
-#  - field_name: cohort_study_access_description
-#    label: Description on how to get access to the data
-#  - field_name: cohort_study_access_url
-#    label: URL to more information on how to access the data
+- field_name: cohort_study_data_access
+  label: How can others gain access to the study data?
+  repeating_subfields:
+  - field_name: cohort_study_access_description
+    label: Description on how to get access to the data
+  - field_name: cohort_study_access_url
+    label: URL to more information on how to access the data
