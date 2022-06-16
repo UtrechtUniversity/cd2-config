@@ -18,7 +18,6 @@ dataset_fields:
 # standard CKAN field
 # name is an internal CKAN identifier;
 # if the cohort has a DOI then possibly use hash of this
-# DH: perhaps skip "name" as we already have "title", or replace title with name?
 - field_name: name
   label: identifier
   preset: dataset_slug
@@ -31,9 +30,6 @@ dataset_fields:
   repeating_subfields:
   - field_name: wave_title
     label: Short identifying title of the wave
-  # DH: measurement stage is not in the metadata model, corresponds with Universe
-  #- field_name: wave_measurement_stages # e.g. 1 month, 3 months, etc; can we somehow harmonize these accross cohorts? 
-  #  label: Stage of measurement (e.g., target age of participants in the wave)
   - field_name: notes # standard CKAN field; abstract description of the wave
     label: Short description of the wave (Abstract)
   - field_name: wave_universe # textual description of universe; redundant with description field available?
@@ -45,10 +41,8 @@ dataset_fields:
     label: Identifier of the organization hosting the wave data
   - field_name: wave_publisher_identifier_type
     label: Type of organization identifier for publisher of the wave data
-  # DH: This info is contained within Universe (was included in older model versions)
-  #- field_name: wave_lifestage
-  #  label: Life stage
-  # DH: SpatialCoverage consists of CountryCode, GeographicLocationReference and Lowest/Higest
+  # TODO: decide whether to add spatial coordinates
+  # SpatialCoverage consists of CountryCode, GeographicLocationReference and Lowest/Higest
   #     reference in the metadata model. I guess these will be collapsed into 1?
   - field_name: wave_geo_location # textual, no coordinates
     label: Geographical coverage
@@ -69,19 +63,39 @@ dataset_fields:
 
   # Is this actually necessary? Don't think so...:
   # DH: I think it is worth adding here, you never know if a specific wave is funded.
-   - field_name: wave_funding # can be distinct for different waves
-       label: Funding for this wave
-       repeating_subfields:
-       - field_name: wave_funder
-         label: Name of funder
-       - field_name: wave_grant_number
-         label:  Grant number
+  - field_name: wave_funding # can be distinct for different waves
+    label: Funding for this wave
+    repeating_subfields:
+    - field_name: wave_funder
+      label: Name of funder
+    - field_name: wave_grant_number
+      label:  Grant number
 
-# DH: Fields also included in metadata model:
+# DH: Fields also included in metadata model, inclusion to be discussed
 #- field_name: wave_language
-#  label: Language of the wave
+#  label: Language of the wave data
 #- field_name: wave_international_identifier
 #  label: Wave international identifier # e.g. DOI
+# repeating_subfields:
+#  - field_name: wave_citation
+#    label: Citation # to be harvested via e.g. DataCite API
+#  - field_name: wave_pid
+#    label: Wave international identifier # e.g. DOI
+#  - field_name: wave_pid_type
+#    label: Identifier type of the reference, e.g., DOI
+#  - field_name: wave_reference_type
+#    label: Reference type # e.g. IsSupplementedBy, IsDocumentedBy, Supplements, etc.
+#    preset: select
+#    choices:
+#    - value: IsDocumentedBy
+#      label: Documented by
+#    - value: IsDescribedBy
+#      label: Described by
+#    - value: IsSupplementedBy
+#      label: Is supplemented by
+#    - value: IsSourceOf
+#      label: Is source of  
+
 
   # # connection to DataCollections (measures)
   # obsolete in new docstore structure
@@ -158,8 +172,8 @@ dataset_fields:
   label: Description of the DataCollection
 - field_name: dc_mode_of_collection
   label: Method of data collection
-#- field_name: dc_mode_of_collection_sub # DH: included in data taxonomy now
-#  label: Further subdivision of ModeOfCollection, if applicable (e.g., MRI, EEG, Eyetracking, Behavioral task, etc.)
+- field_name: dc_mode_of_collection_sub
+  label: Further subdivision of ModeOfCollection, if applicable (e.g., MRI, EEG, Eyetracking, Behavioral task, etc.)
 - field_name: dc_respondent # e.g. child, parent, teacher
   label: Who completed the measure (e.g., a questionnaire can be filled out by a parent of a child)?
 - field_name: dc_subject # e.g. child, family
@@ -168,16 +182,3 @@ dataset_fields:
   labe: Keywords for this DataCollection
 - field_name: dc_construct # "physical health"
   label: Construct category of this DataCollection
-#- field_name: dc_agency # obsolete? DH: I think this can be removed
-#  label: registered agency
-#  preset: markdown
-- field_name: dc_analysis_unit # e.g. individual, household, family
-  label: Analysis unit # DH: I think this is redundant (see Respondent and Subject)
-  preset: multiple_select
-  choices:
-  - value: individual
-    label: individual
-  - value: household
-    label: household
-  - value: family
-    label: family
