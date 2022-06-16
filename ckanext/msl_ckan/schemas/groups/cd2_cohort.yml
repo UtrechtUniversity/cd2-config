@@ -15,7 +15,6 @@ fields:
 # standard CKAN field
 # name is an internal CKAN identifier;
 # if the cohort has a DOI then possibly use hash of this
-# DH: perhaps skip "name" as we already have "title", or replace title with name?
 - field_name: name
   label: identifier
   preset: dataset_slug
