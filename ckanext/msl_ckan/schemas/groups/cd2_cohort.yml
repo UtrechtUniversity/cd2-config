@@ -21,11 +21,11 @@ fields:
   form_placeholder: eg. my-dataset
 
 - field_name: alternate_title
-  label:  Alternate title
+  label:  Alternate title of the cohort
 
 # standard CKAN field
 - field_name: notes
-  label: Description
+  label: Description of the cohort (Abstract)
   required: true
   preset: markdown
   form_snippet: markdown.html
@@ -36,61 +36,89 @@ fields:
   preset: markdown
 
 - field_name: publisher
-  label: Publisher (of the cohort data)
+  label: Publisher/hosting organization of the cohort data
   repeating_subfields:
   - field_name: publisher_name
-    label: Publisher name
+    label: Name of organization hosting the data (e.g. university, library, repository, etc.)
     required: true
   - field_name: publisher_identifier
-    label: Publisher ID
+    label: Identifier of the organization
   - field_name: publisher_identifier_type
-    label: Publisher ID-type
+    label: Type of organization identifier, e.g., PIC-nummer (legal identifier), GRID
 
 - field_name: creators
-  label: Creators
+  label: Creator(s) (e.g., PI(s)) of the cohort
   repeating_subfields:
   - field_name: creator
-    label:  Creator
+    label: Name of the creator
     required: true
   - field_name: creator_affiliation
-    label: Affiliation
+    label: Affiliation of the creator
     required: true
   - field_name: creator_pid
-    label: Identifier
+    label: Identifier of the creator, e.g., an ORCID
   - field_name: creator_identifier_type # ORCID, SCOPUS, etc.
-    label: Identifier type
+    label: Identifier type used for the creator, e.g, ORCID
 
 - field_name: contributors
-  label: Contributors
+  label: Contributors to the cohort
   repeating_subfields:
   - field_name: contributor
-    label:  Contributor
+    label:  Name of the contributor
     required: true
   - field_name: contributor_affiliation
-    label: Affiliation
+    label: Affiliation of the contributor
     required: true
   - field_name: contributor_pid
-    label: identifier
+    label: Identifier of the contributor, e.g., an ORCID
   - field_name: contributor_identifier_type # ORCID, SCOPUS, etc.
-    label: identifier type
+    label: Identifier type used for the contributor, e.g, ORCID
 
 - field_name: international_identifier
-  label: Cohort international identifier # e.g. DOI
+  label: Cohort international identifier, e.g., a DOI
 
 - field_name: funding
-  label: Funding information
+  label: Funding for the cohort
   repeating_subfields:
   - field_name: funder
-    label: Funder name
+    label: Name of funder
   - field_name: grant_number
     label: Grant number
+  # DH: grant_url is not included in the metadatamodel or template now
   - field_name: grant_url
     label: Grant URL # e.g. https://nwo.nl/zwaartekracht/23
 
 # Coverage
 
 # References
+# DH: copy-paste from cohort_study.yml
+- field_name: cohort_references
+  label: References about this cohort
+  repeating_subfields:
+  - field_name: cohort_reference_identifier
+    label: Identifier of the reference
+  - field_name: cohort_reference_identifier_type
+    label: Identifier type of the reference
+  - field_name: cohort_reference_title
+    label: Title of the reference
+  - field_name: cohort_reference_citation
+    label: Citation # to be harvested via e.g. DataCite API
+  - field_name: cohort_reference_type
+    label: Reference type # e.g. IsSupplementedBy, IsDocumentedBy, Supplements, etc.
+    preset: select
+    choices:
+    - value: IsDocumentedBy
+      label: Documented by
+    - value: IsDescribedBy
+      label: Described by
+    - value: IsSupplementedBy
+      label: Is supplemented by
+    - value: IsSourceOf
+      label: Is source of
 
+# Universe
+- field_name: cohort_universe
+  label: Description of the population involved in the cohort 
 # ----------------------- check CKAN defaults:
 
 # standard CKAN field
