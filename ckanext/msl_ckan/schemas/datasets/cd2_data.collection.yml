@@ -69,13 +69,13 @@ dataset_fields:
 
   # Is this actually necessary? Don't think so...:
   # DH: I think it is worth adding here, you never know if a specific wave is funded.
-   - field_name: wave_funding # can be distinct for different waves
-       label: Funding for this wave
-       repeating_subfields:
-       - field_name: wave_funder
-         label: Name of funder
-       - field_name: wave_grant_number
-         label:  Grant number
+  - field_name: wave_funding # can be distinct for different waves
+    label: Funding for this wave
+    repeating_subfields:
+    - field_name: wave_funder
+      label: Name of funder
+    - field_name: wave_grant_number
+      label:  Grant number
 
 # DH: Fields also included in metadata model:
 #- field_name: wave_language
@@ -181,3 +181,9 @@ dataset_fields:
     label: household
   - value: family
     label: family
+
+# Dummy resource field. Must be included because of https://github.com/ckan/ckan/issues/6884
+resource_fields:
+- field_name: name
+  label: Name
+  form_placeholder: eg. January 2011 Gold Prices
