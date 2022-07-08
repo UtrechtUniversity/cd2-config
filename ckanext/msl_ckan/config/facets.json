@@ -7,5 +7,10 @@
   "cohort": {
 	  "dataset_type": "DDI block",
 	  "organization": "Study"
+  },
+  "data_collection": {
+	  "dataset_type": "data_collection",
+	  "title": "Title",
+	  "wave_title": "Wave title"
   }
 }
