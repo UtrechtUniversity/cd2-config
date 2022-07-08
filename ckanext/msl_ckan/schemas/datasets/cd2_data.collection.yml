@@ -11,9 +11,14 @@ dataset_fields:
   preset: title
   form_placeholder: eg. A descriptive title
 
+# DH: added alternate title
+- field_name: wave_alternate_title
+  label:  Alternate title of the wave
+  
 # standard CKAN field
 # name is an internal CKAN identifier;
 # if the cohort has a DOI then possibly use hash of this
+# DH: perhaps skip "name" as we already have "title", or replace title with name?
 - field_name: name
   label: identifier
   preset: dataset_slug
@@ -25,22 +30,26 @@ dataset_fields:
   label: wave
   repeating_subfields:
   - field_name: wave_title
-    label: Short identifying title
-  - field_name: wave_measurement_stages # e.g. 1 month, 3 months, etc; can we somehow harmonize these accross cohorts?
-    label: Stage of measurement
+    label: Short identifying title of the wave
+  # DH: measurement stage is not in the metadata model, corresponds with Universe
+  #- field_name: wave_measurement_stages # e.g. 1 month, 3 months, etc; can we somehow harmonize these accross cohorts? 
+  #  label: Stage of measurement (e.g., target age of participants in the wave)
   - field_name: notes # standard CKAN field; abstract description of the wave
-    label: Short description of the wave
+    label: Short description of the wave (Abstract)
   - field_name: wave_universe # textual description of universe; redundant with description field available?
-    label: Wave universe description
+    label: Short summary of the participants in the cohort (e.g., target age) 
   - field_name: wave_publisher_name
-    label: Publisher of the wave data
+    label: Name of organization hosting the wave data (e.g. university, library, repository, etc.)
     required: true
   - field_name: wave_publisher_identifier
-    label: Publiser ID
+    label: Identifier of the organization hosting the wave data
   - field_name: wave_publisher_identifier_type
-    label: Publisher ID-type
-  - field_name: wave_lifestage
-    label: Life stage
+    label: Type of organization identifier for publisher of the wave data
+  # DH: This info is contained within Universe (was included in older model versions)
+  #- field_name: wave_lifestage
+  #  label: Life stage
+  # DH: SpatialCoverage consists of CountryCode, GeographicLocationReference and Lowest/Higest
+  #     reference in the metadata model. I guess these will be collapsed into 1?
   - field_name: wave_geo_location # textual, no coordinates
     label: Geographical coverage
   - field_name: wave_start_date_collection
@@ -49,20 +58,30 @@ dataset_fields:
     label: End date of wave collection
   - field_name: dc_wave_coverage # note the prefix and see the model: this is actually a field that applies to a single measurement
     label: Coverage percentage of the measurement for this wave
-
+  # DH: added Physical data product
+  - field_name: wave_physical_data_product
+    label: Documents the physical structure of the data produced by the study unit, e.g., digital files, biomedical samples, etc.
+    
   # - field_name: wave_creators
     #   removed for wave level because these are included with the data collection itself
     # - field_name: wave_contributors
     #   removed for wave level because these are included with the data collection itself
 
   # Is this actually necessary? Don't think so...:
-  # - field_name: wave_funding # can be distinct for different waves
-    #   label: Funding information
-    #   repeating_subfields:
-    #   - field_name: wave_funder
-    #     label: Funder name
-    #   - field_name: wave_grant_number
-    #     label:  Grant number
+  # DH: I think it is worth adding here, you never know if a specific wave is funded.
+  - field_name: wave_funding # can be distinct for different waves
+    label: Funding for this wave
+    repeating_subfields:
+    - field_name: wave_funder
+      label: Name of funder
+    - field_name: wave_grant_number
+      label:  Grant number
+
+# DH: Fields also included in metadata model:
+#- field_name: wave_language
+#  label: Language of the wave
+#- field_name: wave_international_identifier
+#  label: Wave international identifier # e.g. DOI
 
   # # connection to DataCollections (measures)
   # obsolete in new docstore structure
@@ -104,36 +123,56 @@ dataset_fields:
 # ------------------ rest of data collection level fields
 
 - field_name: dc_cohort # refers to a group of type cohort (cd2_cohort_yml)
-  label: cohort
-- field_name: dc_label # e.g. "brain anatomy"
-  label: Label
-- field_name: dc_construct # "physical health"
-  label: Construct
-- field_name: dc_agency # obsolete?
-  label: registered agency
-- field_name: dc_description
-  label: Description
-  preset: markdown
-- field_name: dc_mode_of_collection
-  label: Mode of collection
-- field_name: dc_respondent # e.g. child
-  label: Respondent
-- field_name: dc_subject # e.g. child
-  label: Subject
+  label: Cohort that this DataCollection is a part of 
+- field_name: dc_title # DH: added
+  label: Title of the DataCollection
+- field_name: dc_alternate_title # DH: added
+  label: Alternative title of the DataCollection
 - field_name: dc_instrument_name # repeatable? complex (e.g. with an identifier)?
   # translate to complex type of repeating_fields
-  label: Instrument name
-- field_name: dc_measurement_references
-  label: Measurement reference papers
+  label: Name of the instrument
+- field_name: dc_alternate_instrument_name # DH: added
+  label: Alternative name of the instrument
+- field_name: dc_measurement_references # DH: edited to be consistent with cd2_cohort and cd2_study
+  label: References describing the instrument used
   repeating_subfields:
   - field_name: dc_measurements_references_citation
-    label: Citation string
-  - field_name: dc_measurements_references_doi
-    label: DOI
+    label: Citation # to be harvested via e.g. DataCite API
+  - field_name: dc_measurements_references_pid
+    label: Identifier of the measurement reference
+  - field_name: dc_measurements_references_pid_type
+    label: Identifier type of the reference, e.g., DOI
   - field_name: dc_measurements_references_type
-    label: Type of reference # IsSupplementedBy, IsDocumentedBy, etc.
+    label: Reference type # e.g. IsSupplementedBy, IsDocumentedBy, Supplements, etc.
+    preset: select
+    choices:
+    - value: IsDocumentedBy
+      label: Documented by
+    - value: IsDescribedBy
+      label: Described by
+    - value: IsSupplementedBy
+      label: Is supplemented by
+    - value: IsSourceOf
+      label: Is source of
+- field_name: dc_description
+  label: Description of the DataCollection
+- field_name: dc_mode_of_collection
+  label: Method of data collection
+#- field_name: dc_mode_of_collection_sub # DH: included in data taxonomy now
+#  label: Further subdivision of ModeOfCollection, if applicable (e.g., MRI, EEG, Eyetracking, Behavioral task, etc.)
+- field_name: dc_respondent # e.g. child, parent, teacher
+  label: Who completed the measure (e.g., a questionnaire can be filled out by a parent of a child)?
+- field_name: dc_subject # e.g. child, family
+  label: Who is the subject of the DataCollection (about whom)?
+- field_name: dc_label # e.g. "brain anatomy"
+  labe: Keywords for this DataCollection
+- field_name: dc_construct # "physical health"
+  label: Construct category of this DataCollection
+#- field_name: dc_agency # obsolete? DH: I think this can be removed
+#  label: registered agency
+#  preset: markdown
 - field_name: dc_analysis_unit # e.g. individual, household, family
-  label: Analysis unit
+  label: Analysis unit # DH: I think this is redundant (see Respondent and Subject)
   preset: multiple_select
   choices:
   - value: individual
@@ -143,17 +182,8 @@ dataset_fields:
   - value: family
     label: family
 
+# Dummy resource field. Must be included because of https://github.com/ckan/ckan/issues/6884
 resource_fields:
-- field_name: url
-  label: URL
-  preset: resource_url_upload
-  #- field_name: name
-  #  label: Name
-  #  form_placeholder: eg. January 2011 Gold Prices
-  #- field_name: description
-  #  label: Description
-  #  form_snippet: markdown.html
-  #  form_placeholder: Some useful notes about the data
-  #- field_name: format
-  #  label: Format
-  #  preset: resource_format_autocomplete
+- field_name: name
+  label: Name
+  form_placeholder: eg. January 2011 Gold Prices
