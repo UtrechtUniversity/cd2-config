@@ -110,8 +110,11 @@ dataset_fields:
   repeating_subfields:
   - field_name: dc_label
     label: label
-- field_name: dc_construct # "physical health"
-  label: Construct
+- field_name: dc_constructs # "physical health"
+  label: Constructs
+  repeating_subfields:
+  - field_name: dc_construct
+    label: construct
 - field_name: dc_agency # obsolete?
   label: registered agency
 - field_name: notes
