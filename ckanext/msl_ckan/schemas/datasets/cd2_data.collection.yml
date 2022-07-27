@@ -1,5 +1,5 @@
 scheming_version: 2
-dataset_type: data_collection
+dataset_type: dataset
 about: CD² data-collections, include wave information
 about_url: https://github.com/ckan/ckanext-scheming
 
@@ -28,13 +28,13 @@ dataset_fields:
     label: Short identifying title
   - field_name: wave_measurement_stages # e.g. 1 month, 3 months, etc; can we somehow harmonize these accross cohorts?
     label: Stage of measurement
-  - field_name: notes # standard CKAN field; abstract description of the wave
+  - field_name: wave_description # abstract description of the wave
     label: Short description of the wave
   - field_name: wave_universe # textual description of universe; redundant with description field available?
     label: Wave universe description
   - field_name: wave_publisher_name
     label: Publisher of the wave data
-    required: true
+    # required: true
   - field_name: wave_publisher_identifier
     label: Publiser ID
   - field_name: wave_publisher_identifier_type
@@ -111,7 +111,7 @@ dataset_fields:
   label: Construct
 - field_name: dc_agency # obsolete?
   label: registered agency
-- field_name: dc_description
+- field_name: notes
   label: Description
   preset: markdown
 - field_name: dc_mode_of_collection
