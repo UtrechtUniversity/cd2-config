@@ -105,8 +105,11 @@ dataset_fields:
 
 - field_name: dc_cohort # refers to a group of type cohort (cd2_cohort_yml)
   label: cohort
-- field_name: dc_label # e.g. "brain anatomy"
-  label: Label
+- field_name: dc_labels # e.g. "brain anatomy"
+  label: Labels
+  repeating_subfields:
+  - field_name: dc_label
+    label: label
 - field_name: dc_construct # "physical health"
   label: Construct
 - field_name: dc_agency # obsolete?
