@@ -1,6 +1,9 @@
 {
     "special_index_fields": [
         "dc_construct",
-        "dc_label"
+        "dc_label",
+        "wave_cohort",
+        "measure_age_month",
+        "wave_title"
     ]
 }
