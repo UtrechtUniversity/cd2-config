@@ -1,4 +1,4 @@
-# CD² ckanext-msl_ckan
+# CD² CKAN config
 
 This extension contains configurations and template files for the CD² CKAN portal.
 The use of this extension is depended on several other extensions as described in the requirements section. 
