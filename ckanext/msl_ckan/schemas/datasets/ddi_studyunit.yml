@@ -92,11 +92,16 @@ dataset_fields:
   label: Life stage
 
 # Coverage
-
-# To be discussed: at this level or at StudyUnit?
-
+- field_name: wave_spatial_country_code
+  label: Country code
+- field_name: wave_spatial_geographic_location
+  label: Geographic location
+- field_name: wave_spatial_lowest_reference
+  label: Lowest geographic reference
+- field_name: wave_spatial_highest_reference
+  label: Highest geographic reference
+  
 # Dates
-
 - field_name: wave_start_date_collection
   label: Start date wave collection
   preset: date
