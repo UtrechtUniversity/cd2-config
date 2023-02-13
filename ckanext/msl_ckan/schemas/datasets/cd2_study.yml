@@ -9,8 +9,6 @@ dataset_fields:
 - field_name: notes
   label: Abstract
   required: true
-  preset: markdown
-  form_snippet: markdown.html
   form_placeholder: eg. Some useful notes about the cohort study
 - field_name: tag_string
   label: Keywords
@@ -117,10 +115,10 @@ dataset_fields:
     label: Citation # to be harvested via e.g. DataCite API
   - field_name: cohort_study_reference_type
     label: Reference type # e.g. IsSupplementedBy, DIsDocumentedBy, Supplements, etc.
-    preset: select
-    choices:
-    - value: DocumentedBy
-      label: Documented by
+    # preset: select
+    # choices:
+    # - value: DocumentedBy
+    #   label: Documented by
 
 
 resource_fields:
