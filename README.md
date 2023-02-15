@@ -1,7 +1,7 @@
 # CD² CKAN config
 
 This extension contains configurations and template files for the CD² CKAN portal.
-The use of this extension is depended on several other extensions as described in the requirements section. 
+The use of this extension is dependent on several other extensions as described in the requirements section. 
 
 This plugin is installed and configured by the [cd2-ansible script](https://github.com/UtrechtUniversity/cd2-ansible)
 
