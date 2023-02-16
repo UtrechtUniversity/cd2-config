@@ -8,9 +8,7 @@ dataset_fields:
   label: Purpose
 - field_name: notes
   label: Abstract
-  required: true
-  preset: markdown
-  form_snippet: markdown.html
+  # required: true - NOTE: moved purpose to dedicated field 'cohort_study_purpose'; standard CKAN field 'notes' no longer used, so not required anymore from version 2.3
   form_placeholder: eg. Some useful notes about the cohort study
 - field_name: tag_string
   label: Keywords
@@ -90,6 +88,8 @@ dataset_fields:
     label: Identifier type
 - field_name: cohort_study_international_identifier
   label: Cohort study international identifier # e.g. DOI
+- field_name: cohort_study_language
+  label: Language
 - field_name: cohort_study_funding
   label: Funding information
   repeating_subfields:
@@ -117,10 +117,10 @@ dataset_fields:
     label: Citation # to be harvested via e.g. DataCite API
   - field_name: cohort_study_reference_type
     label: Reference type # e.g. IsSupplementedBy, DIsDocumentedBy, Supplements, etc.
-    preset: select
-    choices:
-    - value: DocumentedBy
-      label: Documented by
+    # preset: select
+    # choices:
+    # - value: DocumentedBy
+    #   label: Documented by
 
 
 resource_fields:
