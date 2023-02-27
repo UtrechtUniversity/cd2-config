@@ -76,7 +76,7 @@ dataset_fields:
   - field_name: cohort_study_pi_identifier_type # ORCID, SCOPUS, etc.
     label: Identifier type
 - field_name: cohort_study_contributor
-  label: Contributers
+  label: Contributors
   repeating_subfields:
   - field_name: cohort_study_contributor_name
     label: Name
