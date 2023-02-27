@@ -75,16 +75,16 @@ dataset_fields:
     label: Identifier
   - field_name: cohort_study_pi_identifier_type # ORCID, SCOPUS, etc.
     label: Identifier type
-- field_name: cohort_study_contributer
+- field_name: cohort_study_contributor
   label: Contributers
   repeating_subfields:
-  - field_name: cohort_study_contributer_name
+  - field_name: cohort_study_contributor_name
     label: Name
-  - field_name: cohort_study_contributer_affiliation
+  - field_name: cohort_study_contributor_affiliation
     label: Affiliation
-  - field_name: cohort_study_contributer_pid
+  - field_name: cohort_study_contributor_pid
     label: Identifier
-  - field_name: cohort_study_contributer_identifier_type # ORCID, SCOPUS, etc.
+  - field_name: cohort_study_contributor_identifier_type # ORCID, SCOPUS, etc.
     label: Identifier type
 - field_name: cohort_study_international_identifier
   label: Cohort study international identifier # e.g. DOI
