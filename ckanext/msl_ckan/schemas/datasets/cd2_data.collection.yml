@@ -149,7 +149,7 @@ dataset_fields:
 - field_name: dc_measure_name
   label: Measure name
 - field_name: dc_measurement_references
-  label: Measurement reference papers
+  label: References
   repeating_subfields:
   - field_name: dc_measurements_references_citation
     label: Citation
