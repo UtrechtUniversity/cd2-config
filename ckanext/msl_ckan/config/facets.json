@@ -8,6 +8,7 @@
     "dc_label": "label",
     "dc_construct": "construct",
     "dc_mode_of_collection": "mode of collection",
+    "dc_mode_of_collection_sub": "collection subtype",
     "dataset_type": "type",
     "wave_title": "wave"
  },
