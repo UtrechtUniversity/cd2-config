@@ -1,5 +1,5 @@
 scheming_version: 2
-dataset_type: dataset  # CUSTOM
+dataset_type: measure  # CUSTOM
 about: A reimplementation of the default CKAN dataset schema. CD² data-collections, include wave information.
 about_url: http://github.com/ckan/ckanext-scheming
 
