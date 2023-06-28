@@ -117,6 +117,8 @@ dataset_fields:
   - field_name: wave_subject_codes # list, e.g. ['CC', 'PC']
     label: Subject codes
 
+  - field_name: wave_language
+    label: Language
 # end of WAVE information
 
 # ----------------------- some CKAN default fields:
