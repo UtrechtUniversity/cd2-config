@@ -5,81 +5,9 @@ about_url: http://github.com/ckan/ckanext-scheming
 
 dataset_fields:
 
-# standard CKAN field
-- field_name: title
-  label: Title of the data collection
-  preset: title
-  form_placeholder: eg. A descriptive title
-
-# standard CKAN field
-# name is an internal CKAN identifier;
-# if the cohort has a DOI then possibly use hash of this
-- field_name: name
-  label: identifier
-  preset: dataset_slug
-  form_placeholder: eg. my-dataset
-
-# WAVE LEVEL METADATA
-
-- field_name: wave
-  label: wave
-  repeating_subfields:
-  - field_name: wave_cohort
-    label: Parent cohort
-  - field_name: wave_identifier
-    label: handle
-  - field_name: wave_ckan_id
-    label: internal wave id
-  - field_name: wave_title
-    label: Short identifying title
-  - field_name: wave_measurement_stages # e.g. 1 month, 3 months, etc; can we somehow harmonize these accross cohorts?
-    label: Stage of measurement
-  - field_name: wave_subject_codes # list, e.g. ['CC', 'PC']
-    label: Subject codes
-  - field_name: wave_description  # CUSTOM
-    label: Short description of the wave
-  - field_name: wave_universe # textual description of universe; redundant with description field available?
-    label: Wave universe description
-  - field_name: wave_publisher_name
-    label: Publisher of the wave data
-    # required: true CUSTOM
-  - field_name: wave_publisher_identifier
-    label: Publiser ID
-  - field_name: wave_publisher_identifier_type
-    label: Publisher ID-type
-  - field_name: wave_lifestage
-    label: Life stage
-  - field_name: wave_geo_location # textual, no coordinates
-    label: Geographical coverage
-  - field_name: wave_start_date_collection
-    label: Start date of wave collection
-    preset: date
-  - field_name: wave_end_date_collection
-    label: End date of wave collection
-    preset: date
-  - field_name: dc_wave_coverage # note the prefix and see the model: this is actually a field that applies to a single measurement
-    label: Coverage percentage of the measurement for this wave
-  - field_name: wave_cohort_ckan_id
-    label: (ckan) cohort identifier
-
-  # - field_name: wave_creators
-    #   removed for wave level because these are included with the data collection itself
-    # - field_name: wave_contributors
-    #   removed for wave level because these are included with the data collection itself
-
-  # Is this actually necessary? Don't think so...:
-  # - field_name: wave_funding # can be distinct for different waves
-    #   label: Funding information
-    #   repeating_subfields:
-    #   - field_name: wave_funder
-    #     label: Funder name
-    #   - field_name: wave_grant_number
-    #     label:  Grant number
-
-  # # connection to DataCollections (measures)
-  # obsolete in new docstore structure
-
-# end of WAVE information
+# ====================================================
+# MEASURE LEVEL METADATA
+# ====================================================
 
 # ----------------------- some CKAN default fields:
 
@@ -95,7 +23,7 @@ dataset_fields:
   form_snippet: license.html
   help_text: License definitions and additional information can be found at http://opendefinition.org/
 
-# will refer to the Study that is defined as a CKAN 'organization'
+# Necessary CKAN ownership: will refer to the Study that is defined as a CKAN 'organization'
 - field_name: owner_org
   label: Study
   preset: dataset_organization
@@ -113,7 +41,20 @@ dataset_fields:
   validators: ignore_missing unicode package_version_validator
   form_placeholder: '1.0'
 
-# ------------------ rest of data collection level fields
+# standard CKAN field
+- field_name: title
+  label: Title of the data collection
+  preset: title
+  form_placeholder: eg. A descriptive title
+
+# standard CKAN field
+# name is an internal CKAN identifier;
+# if the cohort has a DOI then possibly use hash of this
+- field_name: name
+  label: identifier
+  preset: dataset_slug
+  form_placeholder: eg. my-dataset
+
 - field_name: dc_common_id
   label: common dataset ID
 - field_name: dc_cohort # refers to a group of type cohort (cd2_cohort_yml)
@@ -177,6 +118,273 @@ dataset_fields:
   label: (sub) cohort
 - field_name: wave_cohort_ckan_id
   label: (ckan) cohort identifier
+
+# ====================================================
+# WAVE LEVEL METADATA
+# ====================================================
+
+- field_name: wave
+  label: wave
+  repeating_subfields:
+  - field_name: wave_cohort
+    label: Parent cohort
+  - field_name: wave_identifier
+    label: handle
+  - field_name: wave_ckan_id
+    label: internal wave id
+  - field_name: wave_title
+    label: Short identifying title
+  - field_name: wave_measurement_stages # e.g. 1 month, 3 months, etc; can we somehow harmonize these accross cohorts?
+    label: Stage of measurement
+  - field_name: wave_subject_codes # list, e.g. ['CC', 'PC']
+    label: Subject codes
+  - field_name: wave_description  # CUSTOM
+    label: Short description of the wave
+  - field_name: wave_universe # textual description of universe; redundant with description field available?
+    label: Wave universe description
+  - field_name: wave_publisher_name
+    label: Publisher of the wave data
+    # required: true CUSTOM
+  - field_name: wave_publisher_identifier
+    label: Publiser ID
+  - field_name: wave_publisher_identifier_type
+    label: Publisher ID-type
+  - field_name: wave_lifestage
+    label: Life stage
+  - field_name: wave_geo_location # textual, no coordinates
+    label: Geographical coverage
+  - field_name: wave_start_date_collection
+    label: Start date of wave collection
+    preset: date
+  - field_name: wave_end_date_collection
+    label: End date of wave collection
+    preset: date
+  - field_name: dc_wave_coverage # note the prefix and see the model: this is actually a field that applies to a single measurement
+    label: Coverage percentage of the measurement for this wave
+  - field_name: wave_cohort_ckan_id
+    label: (ckan) cohort identifier
+
+  # - field_name: wave_creators
+    #   removed for wave level because these are included with the data collection itself
+    # - field_name: wave_contributors
+    #   removed for wave level because these are included with the data collection itself
+
+  # Is this actually necessary? Don't think so...:
+  # - field_name: wave_funding # can be distinct for different waves
+    #   label: Funding information
+    #   repeating_subfields:
+    #   - field_name: wave_funder
+    #     label: Funder name
+    #   - field_name: wave_grant_number
+    #     label:  Grant number
+
+  # # connection to DataCollections (measures)
+  # obsolete in new docstore structure
+
+# end of WAVE information
+
+# ====================================================
+# COHORT LEVEL METADATA
+# ====================================================
+
+- field_name: cohort
+  label: cohort
+  repeating_subfields:
+  - field_name: cohort_title
+    label: Title of the cohort
+  - field_name: cohort_alternate_title
+    label:  Alternate title
+  - field_name: cohort_description
+    label: Description
+  # purpose of the cohort (text field)
+  - field_name: cohort_purpose
+    label: Purpose
+  - field_name: cohort_publisher
+    label: Publisher
+    repeating_subfields:
+    - field_name: cohort_publisher_name
+      label: Publisher name
+    - field_name: cohort_publisher_identifier
+      label: Publisher ID
+    - field_name: cohort_publisher_identifier_type
+      label: Publisher ID-type
+  - field_name: cohort_creators
+    label: Creators
+    repeating_subfields:
+    - field_name: cohort_creator
+      label:  Creator
+    - field_name: cohort_creator_affiliation
+      label: Affiliation
+    - field_name: cohort_creator_pid
+      label: Identifier
+    - field_name: cohort_creator_identifier_type # ORCID, SCOPUS, etc.
+      label: Identifier type
+  - field_name: cohort_contributors
+    label: Contributors
+    repeating_subfields:
+    - field_name: cohort_contributor
+      label:  Contributor
+    - field_name: cohort_contributor_affiliation
+      label: Affiliation
+    - field_name: cohort_contributor_pid
+      label: Identifier
+    - field_name: cohort_contributor_identifier_type # ORCID, SCOPUS, etc.
+      label: Identifier type
+  - field_name: cohort_language
+    label: Language
+  - field_name: cohort_international_identifier
+    label: Cohort international identifier # e.g. DOI
+  - field_name: cohort_funding
+    label: Funding information
+    repeating_subfields:
+    - field_name: cohort_funder
+      label: Funder name
+    - field_name: cohort_grant_number
+      label:  Grant number
+  - field_name: cohort_measurement_references
+    label: Cohort reference papers
+    repeating_subfields:
+    - field_name: cohort_measurements_references_citation
+      label: Citation string
+    - field_name: cohort_measurements_references_doi
+      label: DOI
+    - field_name: cohort_measurements_references_type
+      label: Type of reference # IsSupplementedBy, IsDocumentedBy, etc.
+  # data classification (e.g. sensitive)
+  - field_name: cohort_information_classification
+    label: Classification
+  # contact details
+  - field_name: cohort_contact
+    label: Contact information
+    repeating_subfields:
+    - field_name: cohort_contact_name
+      label: Contact name
+    - field_name: cohort_contact_affiliation
+      label: Affiliation
+    - field_name: cohort_contact_mail
+      label: Mail address
+  # connection to waves (ddi_studyunit.yml; DDI: StudyUnit)
+  - field_name: cohort_waves
+    label: Waves
+    repeating_subfields:
+    - field_name: cohort_wave # contains identifier to a dataset of type 'wave' (see ddi_studyunit.yml)
+      label: Wave
+
+
+  # Coverage
+
+  # To be discussed: at this level or at StudyUnit?
+
+  # References
+  - field_name: cohort_references
+    label: References
+    repeating_subfields:
+    - field_name: cohort_reference_citation
+      label: Citation # to be harvested via e.g. DataCite API
+    - field_name: cohort_reference_identifier
+      label: Identifier
+    - field_name: cohort_reference_identifier_type
+      label: Identifier type
+    - field_name: cohort_reference_type
+      label: Reference type # e.g. IsSupplementedBy, DIsDocumentedBy, Supplements, etc.
+
+  # Universe (text)
+  - field_name: cohort_universe
+    label: Cohort universe description
+
+  # Analysis unit (voc term; e.g. Household, individual, etc.)
+  - field_name: cohort_analysis_unit
+    label: Analysis unit
+
+
+# ====================================================
+# STUDY LEVEL METADATA
+# ====================================================
+
+- field_name: study
+  label: study
+  repeating_subfields:
+  - field_name: study_purpose
+    label: Purpose
+  - field_name: study_description
+    label: description
+  - field_name: study_title
+    label: Title of the cohort study
+  - field_name: study_alternate_title
+    label:  Alternate title
+  - field_name: study_data_access
+    label: Data access information
+    repeating_subfields:
+    - field_name: study_data_access_description
+      label: Description
+    - field_name: study_data_access_URL
+      label: URL
+  - field_name: study_publisher
+    label: Publisher
+    repeating_subfields:
+    - field_name: study_publisher_name
+      label: Publisher name
+    - field_name: study_publisher_identifier
+      label: Publisher ID
+    - field_name: study_publisher_identifier_type
+      label: Publisher ID-type
+  - field_name: study_principal_investigators
+    label: Principal investigators
+    repeating_subfields:
+    - field_name: study_pi_name
+      label: Name
+      required: true
+    - field_name: study_pi_affiliation
+      label: Affiliation
+      required: true
+    - field_name: study_pi_pid
+      label: Identifier
+    - field_name: study_pi_identifier_type # ORCID, SCOPUS, etc.
+      label: Identifier type
+  - field_name: study_contributor
+    label: Contributors
+    repeating_subfields:
+    - field_name: study_contributor_name
+      label: Name
+    - field_name: study_contributor_affiliation
+      label: Affiliation
+    - field_name: study_contributor_pid
+      label: Identifier
+    - field_name: study_contributor_identifier_type # ORCID, SCOPUS, etc.
+      label: Identifier type
+  - field_name: study_international_identifier
+    label: Cohort study international identifier # e.g. DOI
+  - field_name: study_language
+    label: Language
+  - field_name: study_funding
+    label: Funding information
+    repeating_subfields:
+    - field_name: study_funder
+      label: Funder name
+    - field_name: study_grant_number
+      label:  Grant number
+  - field_name: study_contact
+    label: Contact information
+    repeating_subfields:
+    - field_name: study_contact_name
+      label: Name
+    - field_name: study_contact_affiliation
+      label: Affiliation
+    - field_name: study_contact_mail
+      label: Mail address
+  - field_name: study_references
+    label: References
+    repeating_subfields:
+    - field_name: study_reference_identifier
+      label: Identifier
+    - field_name: study_reference_identifier_type
+      label: Identifier type
+    - field_name: study_reference_citation
+      label: Citation # to be harvested via e.g. DataCite API
+    - field_name: study_reference_type
+      label: Reference type # e.g. IsSupplementedBy, DIsDocumentedBy, Supplements, etc.
+# ------------------ 
+
 
 resource_fields:
 
