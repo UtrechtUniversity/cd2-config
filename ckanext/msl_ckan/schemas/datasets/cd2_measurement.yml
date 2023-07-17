@@ -75,6 +75,18 @@ dataset_fields:
     - field_name: wave_grant_number
       label:  Grant number
 
+  - field_name: wave_references
+    label: Wave reference papers
+    repeating_subfields:
+    - field_name: wave_references_citation
+      label: Citation string
+    - field_name: wave_references_identifier
+      label: Identifier
+    - field_name: wave_references_identifier_type
+      label: Identifier type
+    - field_name: wave_references_type
+      label: Type of reference # IsSupplementedBy, IsDocumentedBy, etc.
+
   # connection to (sub) cohorts
   - field_name: wave_cohort
     label: (sub) cohort
@@ -119,6 +131,15 @@ dataset_fields:
 
   - field_name: wave_language
     label: Language
+
+  - field_name: wave_physical_data_product_description
+    label: Description of physical data product
+
+  - field_name: wave_info_url
+    label: Additional info (URL)
+
+  - field_name: wave_info_description
+    label: Additional information
 # end of WAVE information
 
 # NEW ADDITIONS 15/07/23
@@ -212,7 +233,6 @@ dataset_fields:
     - field_name: cohort_wave # contains identifier to a dataset of type 'wave' (see ddi_studyunit.yml)
       label: Wave
 
-
   # Coverage
 
   # To be discussed: at this level or at StudyUnit?
@@ -237,6 +257,12 @@ dataset_fields:
   # Analysis unit (voc term; e.g. Household, individual, etc.)
   - field_name: cohort_analysis_unit
     label: Analysis unit
+
+  - field_name: cohort_info_url
+    label: Additional info (URL)
+
+  - field_name: cohort_info_description
+    label: Additional information
 
 
 # ====================================================
@@ -325,6 +351,13 @@ dataset_fields:
       label: Citation # to be harvested via e.g. DataCite API
     - field_name: study_reference_type
       label: Reference type # e.g. IsSupplementedBy, DIsDocumentedBy, Supplements, etc.
+
+  - field_name: study_info_url
+    label: Additional info (URL)
+
+  - field_name: study_info_description
+    label: Additional information
+
 # ------------------ 
 
 # ----------------------- some CKAN default fields:
