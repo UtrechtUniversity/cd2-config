@@ -27,9 +27,9 @@ dataset_fields:
   - field_name: wave_title #TODO: add to config.yml
     label: Short identifying title
   - field_name: wave_alternate_title
-    label: Wave alternate title
+    label: Alternate title
   - field_name: wave_description  # CUSTOM
-    label: Short description of the wave
+    label: Description
   - field_name: wave_studyunit_type
     label: Type of StudyUnit # e.g. child, adolescent
 
@@ -246,14 +246,14 @@ dataset_fields:
 - field_name: study
   label: study
   repeating_subfields:
-  - field_name: study_purpose
-    label: Purpose
-  - field_name: study_description
-    label: description
   - field_name: study_title
     label: Title of the cohort study
   - field_name: study_alternate_title
     label:  Alternate title
+  - field_name: study_purpose
+    label: Purpose
+  - field_name: study_description
+    label: description
   - field_name: study_data_access
     label: Data access information
     repeating_subfields:
