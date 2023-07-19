@@ -182,7 +182,7 @@ dataset_fields:
       label: Identifier
     - field_name: cohort_creator_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
-  - field_name: cohort_contributors
+  - field_name: cohort_contributor
     label: Contributors
     repeating_subfields:
     - field_name: cohort_contributor
