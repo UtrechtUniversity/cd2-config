@@ -4,7 +4,6 @@
         "dc_label",
         "wave_cohort",
         "measure_age_month",
-        "wave_title",
-        "wave_subject_codes"
+        "wave_title"
     ]
 }
