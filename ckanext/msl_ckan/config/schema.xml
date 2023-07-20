@@ -188,7 +188,7 @@ schema. In this case the version should be set to the next CKAN version number.
     <field name="dc_label" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="dc_construct" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="dc_alternate_name" type="string" indexed="true" stored="true" multiValued="true"/>
-    
+    <field name="wave_subject_codes" type="string" indexed="true" stored="true" multiValued="true"/>
 
 </fields>
 
@@ -227,6 +227,5 @@ schema. In this case the version should be set to the next CKAN version number.
 <copyField source="dc_construct" dest="text"/>
 <copyField source="dc_mode_of_collection" dest="text"/>
 <copyField source="dc_mode_of_collection_sub" dest="text"/>
-
 
 </schema>
