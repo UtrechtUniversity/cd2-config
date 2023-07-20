@@ -11,7 +11,7 @@
     "dc_mode_of_collection_sub": "collection subtype",
     "wave_title": "wave",
     "dataset_type": "type",
-    "wave_subject_codes": "Subject"
+    "wave_subject_codes": "subject"
  },
   "cohort": {
 	  "dataset_type": "DDI block",
