@@ -5,10 +5,10 @@
     "measure_age_month": "age range",
     "organization":  "study",
     "wave_cohort": "cohort",
-    "dc_label": "label",
     "dc_construct": "construct",
     "dc_mode_of_collection": "mode of collection",
     "dc_mode_of_collection_sub": "collection subtype",
+    "dc_label": "label",
     "wave_title": "wave",
     "dataset_type": "type"
  },
