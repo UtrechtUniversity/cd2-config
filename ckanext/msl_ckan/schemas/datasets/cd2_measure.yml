@@ -413,8 +413,11 @@ dataset_fields:
   label: Registered agency
 - field_name: notes # dc_description - changed: prefer to have description of measurement in abstract CUSTOM
   label: Description
-- field_name: dc_mode_of_collection
-  label: Mode of collection
+- field_name: dc_modes_of_collection
+  label: Modes of collection
+  repeating_subfields:
+  - field_name: dc_mode_of_collection
+    label: Mode of collection
 - field_name: dc_mode_of_collection_sub
   label: Mode of collection sub
 - field_name: dc_respondent # e.g. child
