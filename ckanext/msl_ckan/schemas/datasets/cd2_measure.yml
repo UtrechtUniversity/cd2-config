@@ -55,18 +55,6 @@ dataset_fields:
     - field_name: wave_creator_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
 
-  - field_name: wave_contributor #TODO: changed name!
-    label: Contributors
-    repeating_subfields:
-    - field_name: wave_contributor_name #TODO: changed name!
-      label: Contributor name
-    - field_name: wave_contributor_affiliation
-      label: Affiliation
-    - field_name: wave_contributor_pid
-      label: Identifier
-    - field_name: wave_contributor_identifier_type # ORCID, SCOPUS, etc.
-      label: Identifier type
-
   - field_name: wave_funding # can be distinct for different waves
     label: Funding information
     repeating_subfields:
@@ -140,6 +128,19 @@ dataset_fields:
 
   - field_name: wave_info_description
     label: Additional information
+
+  - field_name: wave_contributor #TODO: changed name!
+    label: Contributors
+    repeating_subfields:
+    - field_name: wave_contributor_name #TODO: changed name!
+      label: Contributor name
+    - field_name: wave_contributor_affiliation
+      label: Affiliation
+    - field_name: wave_contributor_pid
+      label: Identifier
+    - field_name: wave_contributor_identifier_type # ORCID, SCOPUS, etc.
+      label: Identifier type
+
 # end of WAVE information
 
 # NEW ADDITIONS 15/07/23
@@ -182,17 +183,6 @@ dataset_fields:
       label: Identifier
     - field_name: cohort_creator_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
-  - field_name: cohort_contributor
-    label: Contributors
-    repeating_subfields:
-    - field_name: cohort_contributor
-      label:  Contributor
-    - field_name: cohort_contributor_affiliation
-      label: Affiliation
-    - field_name: cohort_contributor_pid
-      label: Identifier
-    - field_name: cohort_contributor_identifier_type # ORCID, SCOPUS, etc.
-      label: Identifier type
   - field_name: cohort_language
     label: Language
   - field_name: cohort_international_identifier
@@ -233,6 +223,17 @@ dataset_fields:
     - field_name: cohort_wave # contains identifier to a dataset of type 'wave' (see ddi_studyunit.yml)
       label: Wave
 
+  - field_name: cohort_contributor
+    label: Contributors
+    repeating_subfields:
+    - field_name: cohort_contributor
+      label:  Contributor
+    - field_name: cohort_contributor_affiliation
+      label: Affiliation
+    - field_name: cohort_contributor_pid
+      label: Identifier
+    - field_name: cohort_contributor_identifier_type # ORCID, SCOPUS, etc.
+      label: Identifier type
   # Coverage
 
   # To be discussed: at this level or at StudyUnit?
@@ -309,17 +310,6 @@ dataset_fields:
       label: Identifier
     - field_name: study_pi_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
-  - field_name: study_contributor
-    label: Contributors
-    repeating_subfields:
-    - field_name: study_contributor_name
-      label: Name
-    - field_name: study_contributor_affiliation
-      label: Affiliation
-    - field_name: study_contributor_pid
-      label: Identifier
-    - field_name: study_contributor_identifier_type # ORCID, SCOPUS, etc.
-      label: Identifier type
   - field_name: study_international_identifier
     label: Cohort study international identifier # e.g. DOI
   - field_name: study_language
@@ -357,6 +347,18 @@ dataset_fields:
 
   - field_name: study_info_description
     label: Additional information
+
+ - field_name: study_contributor
+    label: Contributors
+    repeating_subfields:
+    - field_name: study_contributor_name
+      label: Name
+    - field_name: study_contributor_affiliation
+      label: Affiliation
+    - field_name: study_contributor_pid
+      label: Identifier
+    - field_name: study_contributor_identifier_type # ORCID, SCOPUS, etc.
+      label: Identifier type
 
 # ------------------ 
 
