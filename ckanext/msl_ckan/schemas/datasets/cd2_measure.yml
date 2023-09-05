@@ -222,7 +222,6 @@ dataset_fields:
     repeating_subfields:
     - field_name: cohort_wave # contains identifier to a dataset of type 'wave' (see ddi_studyunit.yml)
       label: Wave
-
   - field_name: cohort_contributor
     label: Contributors
     repeating_subfields:
@@ -347,8 +346,8 @@ dataset_fields:
 
   - field_name: study_info_description
     label: Additional information
-
- - field_name: study_contributor
+    
+  - field_name: study_contributor
     label: Contributors
     repeating_subfields:
     - field_name: study_contributor_name
