@@ -7,7 +7,7 @@
     "wave_cohort": "cohort",
     "dc_construct": "construct",
     "dc_mode_of_collection": "mode of collection",
-    "dc_mode_of_collection_sub": "collection subtype",
+    "dc_mode_of_collection_sub": "Measurements and tests subtype",
     "dc_label": "keyword",
     "wave_title": "wave",
     "dataset_type": "type"

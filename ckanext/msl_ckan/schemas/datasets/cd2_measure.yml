@@ -419,8 +419,11 @@ dataset_fields:
   repeating_subfields:
   - field_name: dc_mode_of_collection
     label: Mode of collection
-- field_name: dc_mode_of_collection_sub
-  label: Mode of collection sub
+- field_name: dc_modes_of_collection_sub
+  label: Modes of collection sub
+  repeating_subfields:
+  - field_name: dc_mode_of_collection_sub
+    label: Mode of collection sub
 - field_name: dc_respondent # e.g. child
   label: Respondent
 - field_name: dc_subject # e.g. child
