@@ -4,6 +4,8 @@
         "dc_label",
         "wave_cohort",
         "measure_age_month",
-        "dc_mode_of_collection"
+        "dc_mode_of_collection",
+        "dc_mode_of_collection_sub"
+
     ]
 }
