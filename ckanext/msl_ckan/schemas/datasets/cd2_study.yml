@@ -55,11 +55,11 @@ dataset_fields:
 - field_name: cohort_study_publisher
   label: Publisher
   repeating_subfields:
-  - field_name: cohort_study_name
+  - field_name: cohort_study_publisher_name
     label: Publisher name
-  - field_name: cohort_study_identifier
+  - field_name: cohort_study_publisher_identifier
     label: Publisher ID
-  - field_name: cohort_study_identifier_type
+  - field_name: cohort_study_publisher_identifier_type
     label: Publisher ID-type
 
 - field_name: cohort_study_principal_investigators
