@@ -117,10 +117,10 @@ dataset_fields:
     label: Citation # to be harvested via e.g. DataCite API
   - field_name: study_reference_type
     label: Reference type # e.g. IsSupplementedBy, DIsDocumentedBy, Supplements, etc.
-    # preset: select
-    # choices:
-    # - value: DocumentedBy
-    #   label: Documented by
+- field_name: study_time_method
+  label: Time method
+- field_name: study_universe
+  label: Universe
 
 
 resource_fields:
