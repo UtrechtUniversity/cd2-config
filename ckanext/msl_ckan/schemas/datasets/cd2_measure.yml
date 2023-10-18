@@ -264,6 +264,9 @@ dataset_fields:
   - field_name: cohort_info_description
     label: Additional information
 
+  - field_name: cohort_time_method
+    label: Time method
+
 
 # ====================================================
 # STUDY LEVEL METADATA
@@ -276,7 +279,7 @@ dataset_fields:
     label: Purpose
   - field_name: study_description
     label: description
-  - field_name: title
+  - field_name: study_title
     label: Title of the cohort study
   - field_name: study_alternate_title
     label:  Alternate title
@@ -358,6 +361,11 @@ dataset_fields:
       label: Identifier
     - field_name: study_contributor_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
+
+  - field_name: study_time_method
+    label: Time method
+  - field_name: study_universe
+    label: Universe
 
 # ------------------ 
 
