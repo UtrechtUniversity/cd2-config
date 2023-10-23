@@ -64,7 +64,7 @@ dataset_fields:
       label:  Grant number
 
   - field_name: wave_references
-    label: Wave reference papers
+    label: References
     repeating_subfields:
     - field_name: wave_references_citation
       label: Citation string
