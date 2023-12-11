@@ -104,8 +104,14 @@ dataset_fields:
 
   - field_name: wave_measurement_stages # e.g. 1 month, 3 months, etc; can we somehow harmonize these accross cohorts?
     label: Stage of measurement
+
   - field_name: wave_subject_codes # list, e.g. ['CC', 'PC']
     label: Subject codes
+    repeating_subfields:
+    - field_name: wave_subject_code
+      label: Code
+    - field_name: wave_subject_code_translated
+      label: Subject code translated
 
   - field_name: wave_language
     label: Language
