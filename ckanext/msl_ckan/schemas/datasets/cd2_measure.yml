@@ -64,7 +64,7 @@ dataset_fields:
       label:  Grant number
 
   - field_name: wave_references
-    label: Wave reference papers
+    label: References
     repeating_subfields:
     - field_name: wave_references_citation
       label: Citation string
@@ -104,8 +104,14 @@ dataset_fields:
 
   - field_name: wave_measurement_stages # e.g. 1 month, 3 months, etc; can we somehow harmonize these accross cohorts?
     label: Stage of measurement
+
   - field_name: wave_subject_codes # list, e.g. ['CC', 'PC']
     label: Subject codes
+    repeating_subfields:
+    - field_name: wave_subject_code
+      label: Code
+    - field_name: wave_subject_code_translated
+      label: Subject code translated
 
   - field_name: wave_language
     label: Language
@@ -279,7 +285,7 @@ dataset_fields:
     label: Purpose
   - field_name: study_description
     label: description
-  - field_name: study_title
+  - field_name: title
     label: Title of the cohort study
   - field_name: study_alternate_title
     label:  Alternate title
