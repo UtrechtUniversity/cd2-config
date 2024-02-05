@@ -50,10 +50,18 @@ dataset_fields:
       label: Creator name
     - field_name: wave_creator_affiliation
       label: Affiliation
+    - field_name: wave_creator_affiliation_identifier
+      label: Affiliation identifier
+    - field_name: wave_creator_affiliation_identifier_scheme
+      label: Identifier type
+    - field_name: wave_creator_affiliation_identifier_schemeuri
+      label: Identifier type URI
     - field_name: wave_creator_pid
       label: Identifier
     - field_name: wave_creator_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
+    - field_name: wave_creator_identifier_schemeuri
+      label: Identifier type URI
 
   - field_name: wave_funding # can be distinct for different waves
     label: Funding information
@@ -62,6 +70,16 @@ dataset_fields:
       label: Funder name
     - field_name: wave_grant_number
       label:  Grant number
+    - field_name: wave_funder_identifier
+      label: Funder identifier
+    - field_name: wave_funder_identifier_type
+      label: Identifier type
+    - field_name: wave_funder_identifier_schemuri
+      label: Identifier type URI
+    - field_name: wave_funder_award_title
+      label: Funder award title
+    - field_name: wave_funder_award_uri
+      label: Funder award URI
 
   - field_name: wave_references
     label: References
@@ -132,10 +150,18 @@ dataset_fields:
       label: Contributor name
     - field_name: wave_contributor_affiliation
       label: Affiliation
+    - field_name: wave_contributor_affiliation_identifier
+      label: Affiliation identifier
+    - field_name: wave_contributor_affiliation_identifier_scheme
+      label: Identifier type
+    - field_name: wave_contributor_affiliation_identifier_schemeuri
+      label: Identifier type URI
     - field_name: wave_contributor_pid
       label: Identifier
     - field_name: wave_contributor_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
+    - field_name: wave_contributor_identifier_schemeuri
+      label: Identifier type URI
 
 # end of WAVE information
 
@@ -168,17 +194,25 @@ dataset_fields:
       label: Publisher ID
     - field_name: cohort_publisher_identifier_type
       label: Publisher ID-type
-  - field_name: cohort_creators
+  - field_name: cohort_creator
     label: Creators
     repeating_subfields:
     - field_name: cohort_creator
-      label:  Creator
+      label: Creator
     - field_name: cohort_creator_affiliation
       label: Affiliation
+    - field_name: cohort_creator_affiliation_identifier
+      label: Affiliation identifier
+    - field_name: cohort_creator_affiliation_identifier_scheme
+      label: Identifier type
+    - field_name: cohort_creator_affiliation_identifier_schemeuri
+      label: Identifier type URI
     - field_name: cohort_creator_pid
       label: Identifier
     - field_name: cohort_creator_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
+    - field_name: cohort_creator_identifier_schemeuri
+      label: Identifier type URI
   - field_name: cohort_language
     label: Language
   - field_name: cohort_international_identifier
@@ -190,6 +224,16 @@ dataset_fields:
       label: Funder name
     - field_name: cohort_grant_number
       label:  Grant number
+    - field_name: cohort_funder_identifier
+      label: Funder identifier
+    - field_name: cohort_funder_identifier_type
+      label: Identifier type
+    - field_name: cohort_funder_identifier_schemuri
+      label: Identifier type URI
+    - field_name: cohort_funder_award_title
+      label: Funder award title
+    - field_name: cohort_funder_award_uri
+      label: Funder award URI
   - field_name: cohort_measurement_references
     label: Cohort reference papers
     repeating_subfields:
@@ -225,10 +269,19 @@ dataset_fields:
       label:  Contributor
     - field_name: cohort_contributor_affiliation
       label: Affiliation
+    - field_name: cohort_contributor_affiliation_identifier
+      label: Affiliation identifier
+    - field_name: cohort_contributor_affiliation_identifier_scheme
+      label: Identifier type
+    - field_name: cohort_contributor_affiliation_identifier_schemeuri
+      label: Identifier type URI
     - field_name: cohort_contributor_pid
       label: Identifier
     - field_name: cohort_contributor_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
+    - field_name: cohort_contributor_identifier_schemeuri
+      labe: Identifier type URI
+
   # Coverage
 
   # To be discussed: at this level or at StudyUnit?
@@ -305,6 +358,8 @@ dataset_fields:
       label: Publisher ID
     - field_name: study_publisher_identifier_type
       label: Publisher ID-type
+    - field_name: study_publisher_identifier_schemeuri
+      label: Publisher ID schema
   - field_name: study_principal_investigators
     label: Principal investigators
     repeating_subfields:
@@ -313,11 +368,19 @@ dataset_fields:
       required: true
     - field_name: study_pi_affiliation
       label: Affiliation
-      required: true
+      # required: true
+    - field_name: study_pi_affiliation_identifier
+      label: Affiliation identifier
+    - field_name: study_pi_affiliation_identifier_scheme
+      label: Affiliation identifier type
+    - field_name: study_pi_affiliation_identifier_schemeuri
+      label: Affiliation identifier type schema
     - field_name: study_pi_pid
       label: Identifier
     - field_name: study_pi_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
+    - field_name: study_pi_identifier_schemeuri
+      label: Identifier type schema uri
   - field_name: study_international_identifier
     label: Cohort study international identifier # e.g. DOI
   - field_name: study_language
@@ -329,6 +392,16 @@ dataset_fields:
       label: Funder name
     - field_name: study_grant_number
       label:  Grant number
+    - field_name: study_funder_identifier
+      label: Funder identifier
+    - field_name: study_funder_identifier_type
+      label: Funder identifier type
+    - field_name: study_funder_identifier_schemuri
+      label: Funder identifier type URI
+    - field_name: study_funder_award_title
+      label: Funder award title
+    - field_name: study_funder_award_uri
+      label: Funder award URI
   - field_name: study_contact
     label: Contact information
     repeating_subfields:
@@ -363,10 +436,18 @@ dataset_fields:
       label: Name
     - field_name: study_contributor_affiliation
       label: Affiliation
+    - field_name: study_contributor_affiliation_identifier
+      label: Affiliation identifier
+    - field_name: study_contributor_affiliation_identifier_scheme
+      label: Affiliation identifier type
+    - field_name: study_contributor_affiliation_identifier_schemeuri
+      label: Affiliation Identifier URI
     - field_name: study_contributor_pid
       label: Identifier
     - field_name: study_contributor_identifier_type # ORCID, SCOPUS, etc.
       label: Identifier type
+    - field_name: study_contributor_identifier_schemeuri
+      label: Identifier URI
 
   - field_name: study_time_method
     label: Time method
