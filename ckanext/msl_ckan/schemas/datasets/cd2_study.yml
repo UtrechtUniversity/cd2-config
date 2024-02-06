@@ -61,7 +61,8 @@ dataset_fields:
     label: Publisher ID
   - field_name: study_publisher_identifier_type
     label: Publisher ID-type
-
+  - field_name: study_publisher_identifier_schemeuri
+    label: Publisher ID schema
 - field_name: study_principal_investigators
   label: Principal investigators
   repeating_subfields:
@@ -70,11 +71,19 @@ dataset_fields:
     required: true
   - field_name: study_pi_affiliation
     label: Affiliation
-    required: true
+    # required: true
+  - field_name: study_pi_affiliation_identifier
+    label: Affiliation identifier
+  - field_name: study_pi_affiliation_identifier_scheme
+    label: Affiliation identifier type
+  - field_name: study_pi_affiliation_identifier_schemeuri
+    label: Affiliation identifier type schema
   - field_name: study_pi_pid
     label: Identifier
   - field_name: study_pi_identifier_type # ORCID, SCOPUS, etc.
     label: Identifier type
+  - field_name: study_pi_identifier_schemeuri
+    label: Identifier type schema uri
 - field_name: study_contributor
   label: Contributors
   repeating_subfields:
@@ -82,10 +91,18 @@ dataset_fields:
     label: Name
   - field_name: study_contributor_affiliation
     label: Affiliation
+  - field_name: study_contributor_affiliation_identifier
+    label: Affiliation identifier
+  - field_name: study_contributor_affiliation_identifier_scheme
+    label: Affiliation identifier type
+  - field_name: study_contributor_affiliation_identifier_schemeuri
+    label: Affiliation Identifier URI
   - field_name: study_contributor_pid
     label: Identifier
   - field_name: study_contributor_identifier_type # ORCID, SCOPUS, etc.
     label: Identifier type
+  - field_name: study_contributor_identifier_schemeuri
+    label: Identifier URI
 - field_name: study_international_identifier
   label: Cohort study international identifier # e.g. DOI
 - field_name: study_language
@@ -97,6 +114,16 @@ dataset_fields:
     label: Funder name
   - field_name: study_grant_number
     label:  Grant number
+  - field_name: study_funder_identifier
+    label: Funder identifier
+  - field_name: study_funder_identifier_type
+    label: Funder identifier type
+  - field_name: study_funder_identifier_schemuri
+    label: Funder identifier type URI
+  - field_name: study_funder_award_title
+    label: Funder award title
+  - field_name: study_funder_award_uri
+    label: Funder award URI
 - field_name: study_contact
   label: Contact information
   repeating_subfields:
