@@ -338,7 +338,7 @@ dataset_fields:
     label: Purpose
   - field_name: study_description
     label: description
-  - field_name: study_title
+  - field_name: title
     label: Title of the cohort study
   - field_name: study_alternate_title
     label:  Alternate title
