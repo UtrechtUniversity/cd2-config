@@ -19,6 +19,16 @@ dataset_fields:
   preset: dataset_slug
   form_placeholder: eg. my-dataset
 
+# DOI at measure level: mandatory (gets assigned during publication) and needed for citation
+# DataCIte recommends full resolvable URL (see DataCiteMetadataWorkingGroup.(2024).DataCiteMetadataSchemaforthePublication and Citation of Research Data and Other Research Outputs. Version 4.5. DataCite e.V. https://doi. org/10.14454/g8e5-6293, pg. 7, Citation)
+- field_name: dc_DOI
+  label: DOI
+  repeating_subfields:
+  - field_name: dc_pid
+    label: identifier
+  - field_name: dc_identifier_type # always DOI here
+    label: Identifier type (DOI)
+
 # WAVE LEVEL METADATA
 
 - field_name: wave
