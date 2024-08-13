@@ -16,7 +16,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='0.9.0',
+    version='0.9.1',
 
     description='''CKAN extension for the CD2 catalog.''',
     long_description=long_description,
@@ -26,8 +26,8 @@ setup(
     url='https://github.com/utrechtUniversity/cd2-config',
 
     # Author details
-    author='''Laurens Samshuijzen, Pascal Pas, Otto Lange, Jelmer Zondergeld, Sietse Snel''',
-    author_email='''l.samshuijzen@uu.nl, pascalpas@me.com, o.a.lange@uu.nl, aucuparia@users.noreply.github.com, s.t.snel@uu.nl''',
+    author='''Laurens Samshuijzen, Pascal Pas, Otto Lange, Jelmer Zondergeld, Sietse Snel, Harm de Raaff''',
+    author_email='''l.samshuijzen@uu.nl, pascalpas@me.com, o.a.lange@uu.nl, aucuparia@users.noreply.github.com, s.t.snel@uu.nl, harm.apple@gmail.com''',
 
     # Choose your license
     license='AGPL',
