@@ -1,5 +1,5 @@
 include README.rst
 include LICENSE
 include requirements.txt
-recursive-include ckanext/msl_ckan *.html *.json *.js *.less *.css *.mo *.yml
-recursive-include ckanext/msl_ckan/migration *.ini *.py *.mako
+recursive-include ckanext/cd2_config *.html *.json *.js *.less *.css *.mo *.yml
+recursive-include ckanext/cd2_config/migration *.ini *.py *.mako

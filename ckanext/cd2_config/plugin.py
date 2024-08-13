@@ -2,7 +2,7 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
 
-class MslCkanPlugin(plugins.SingletonPlugin):
+class CD2ConfigPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
 
     # IConfigurer
@@ -11,4 +11,4 @@ class MslCkanPlugin(plugins.SingletonPlugin):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic',
-            'msl_ckan')
+            'cd2_config')
