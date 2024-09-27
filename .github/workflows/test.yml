@@ -10,7 +10,7 @@ jobs:
       image: openknowledge/ckan-dev:2.9
     services:
       solr:
-        image: ckan/ckan-solr-dev:2.9
+        image: ckan/ckan-solr:2.9-solr8
       postgres:
         image: ckan/ckan-postgres-dev:2.9
         env:
@@ -44,5 +44,5 @@ jobs:
 
         ckan -c test.ini db init
     - name: Run tests
-      run: pytest --ckan-ini=test.ini --cov=ckanext.msl_ckan --disable-warnings ckanext/msl_ckan
+      run: pytest --ckan-ini=test.ini --cov=ckanext.cd2_config --disable-warnings ckanext/cd2_config
 

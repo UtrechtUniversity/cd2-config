@@ -11,23 +11,23 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='''ckanext-msl_ckan''',
+    name='''ckanext-cd2_config''',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='0.0.1',
+    version='0.9.1',
 
-    description='''Extension to enable customization for EPOS MSL CKAN portal.''',
+    description='''CKAN extension for the CD2 catalog.''',
     long_description=long_description,
     long_description_content_type="text/markdown",
 
     # The project's main homepage.
-    url='https://github.com/University Utrecht/ckanext-msl_ckan',
+    url='https://github.com/utrechtUniversity/cd2-config',
 
     # Author details
-    author='''Laurens Samshuijzen''',
-    author_email='''l.samshuijzen@uu.nl''',
+    author='''Laurens Samshuijzen, Pascal Pas, Otto Lange, Jelmer Zondergeld, Sietse Snel, Harm de Raaff''',
+    author_email='''l.samshuijzen@uu.nl, pascalpas@me.com, o.a.lange@uu.nl, aucuparia@users.noreply.github.com, s.t.snel@uu.nl, harm.apple@gmail.com''',
 
     # Choose your license
     license='AGPL',
@@ -45,7 +45,7 @@ setup(
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.8',
     ],
 
 
@@ -84,7 +84,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        msl_ckan=ckanext.msl_ckan.plugin:MslCkanPlugin
+        cd2_config=ckanext.cd2_config.plugin:CD2ConfigPlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan

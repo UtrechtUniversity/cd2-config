@@ -1,0 +1,14 @@
+# cd2_config-js:
+#   filter: rjsmin
+#   output: ckanext-cd2_config/%(version)s-cd2_config.js
+#   contents:
+#     - js/cd2_config.js
+#   extra:
+#     preload:
+#       - base/main
+
+# cd2_config-css:
+#   filter: cssrewrite
+#   output: ckanext-cd2_config/%(version)s-cd2_config.css
+#   contents:
+#     - css/cd2_config.css

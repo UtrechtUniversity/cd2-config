@@ -26,7 +26,7 @@ This extension requires the following other extension to be installed and activa
    For example installing any non-Python dependencies or adding any required
    config settings.
 
-To install ckanext-msl_ckan:
+To install ckanext-cd2_config
 
 1. Activate your CKAN virtual environment, for example:
 
@@ -34,12 +34,12 @@ To install ckanext-msl_ckan:
 
 2. Clone the source and install it on the virtualenv
 
-            git clone https://git.science.uu.nl/epos-msl/epos-msl.git
-            cd ckanext-msl_ckan
+            git clone https://github.com/UtrechtUniversity/cd2-config.git
+            cd ckanext-cd2_config
             pip install -e .
             pip install -r requirements.txt
 
-3. Add `msl_ckan` to the `ckan.plugins` setting in your CKAN
+3. Add `cd2_config` to the `ckan.plugins` setting in your CKAN
    config file (by default the config file is located at
    `/etc/ckan/default/ckan.ini`).
 
