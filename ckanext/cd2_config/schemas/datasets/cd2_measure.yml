@@ -56,7 +56,7 @@ dataset_fields:
   - field_name: wave_creator #TODO: changed name!
     label: Creators
     repeating_subfields:
-    - field_name: wave_creator_name #TODO: changed name!
+    - field_name: wave_creator
       label: Creator name
     - field_name: wave_creator_affiliation
       label: Affiliation
