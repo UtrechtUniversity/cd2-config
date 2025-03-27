@@ -6,7 +6,7 @@ The use of this extension is dependent on several other extensions as described 
 This plugin is installed and configured by the [cd2-ansible script](https://github.com/UtrechtUniversity/cd2-ansible)
 
 ## Requirements
-This extension has been developed and tested with CKAN version 2.9.*
+This extension has been developed and tested with CKAN versions 2.9.* and 2.11.0
 
 This extension requires the following other extension to be installed and activated:
 
